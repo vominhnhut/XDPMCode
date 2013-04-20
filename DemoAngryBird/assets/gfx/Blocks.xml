@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texture version="1" file="Blocks.png" type="bitmap" width="1008" height="840" pixelformat="RGBA_8888" minfilter="linear" magfilter="linear" wrapt="clamp" wraps="clamp" premultiplyalpha="false">
+    <!-- Created with TexturePacker http://texturepacker.com -->
+    <!-- $TexturePacker:SmartUpdate:65c65579dbf7f90278c2994334337f58$ -->
+    <textureregion id="0" src="CirBig_ice.png" x="335" y="306" width="300" height="75" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="300" srcheight="75"/>
+    <textureregion id="1" src="CirBig_rock.png" x="2" y="383" width="300" height="75" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="300" srcheight="75"/>
+    <textureregion id="2" src="CirBig_wood.png" x="637" y="306" width="300" height="75" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="300" srcheight="75"/>
+    <textureregion id="3" src="CirMedium_ice.png" x="696" y="260" width="176" height="44" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="176" srcheight="44"/>
+    <textureregion id="4" src="CirMedium_rock.png" x="518" y="260" width="176" height="44" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="176" srcheight="44"/>
+    <textureregion id="5" src="CirMedium_wood.png" x="340" y="260" width="176" height="44" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="176" srcheight="44"/>
+    <textureregion id="6" src="RecEmpty_ice.png" x="340" y="553" width="336" height="84" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="336" srcheight="84"/>
+    <textureregion id="7" src="RecEmpty_rock.png" x="670" y="467" width="336" height="84" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="336" srcheight="84"/>
+    <textureregion id="8" src="RecEmpty_wood.png" x="332" y="467" width="336" height="84" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="336" srcheight="84"/>
+    <textureregion id="9" src="RecFull_ice.png" x="2" y="260" width="336" height="43" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="336" srcheight="43"/>
+    <textureregion id="10" src="RecFull_rock.png" x="2" y="215" width="336" height="43" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="336" srcheight="43"/>
+    <textureregion id="11" src="RecFull_wood.png" x="340" y="215" width="336" height="43" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="336" srcheight="43"/>
+    <textureregion id="12" src="RecLong_ice.png" x="2" y="2" width="820" height="22" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="820" srcheight="22"/>
+    <textureregion id="13" src="RecLong_rock.png" x="176" y="146" width="820" height="22" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="820" srcheight="22"/>
+    <textureregion id="14" src="RecLong_wood.png" x="2" y="50" width="820" height="22" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="820" srcheight="22"/>
+    <textureregion id="15" src="RecMedium_ice.png" x="2" y="74" width="672" height="22" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="672" srcheight="22"/>
+    <textureregion id="16" src="RecMedium_rock.png" x="2" y="26" width="672" height="22" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="672" srcheight="22"/>
+    <textureregion id="17" src="RecMedium_wood.png" x="2" y="98" width="672" height="22" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="672" srcheight="22"/>
+    <textureregion id="18" src="RecShort_ice.png" x="2" y="122" width="336" height="22" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="336" srcheight="22"/>
+    <textureregion id="19" src="RecShort_rock.png" x="272" y="170" width="336" height="22" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="336" srcheight="22"/>
+    <textureregion id="20" src="RecShort_wood.png" x="514" y="122" width="336" height="22" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="336" srcheight="22"/>
+    <textureregion id="21" src="RecShortest_ice.png" x="2" y="146" width="172" height="22" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="172" srcheight="22"/>
+    <textureregion id="22" src="RecShortest_rock.png" x="340" y="122" width="172" height="22" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="172" srcheight="22"/>
+    <textureregion id="23" src="RecShortest_wood.png" x="676" y="98" width="172" height="22" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="172" srcheight="22"/>
+    <textureregion id="24" src="SquareMedium_ice.png" x="780" y="170" width="168" height="43" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="168" srcheight="43"/>
+    <textureregion id="25" src="SquareMedium_rock.png" x="678" y="215" width="168" height="43" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="168" srcheight="43"/>
+    <textureregion id="26" src="SquareMedium_wood.png" x="610" y="170" width="168" height="43" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="168" srcheight="43"/>
+    <textureregion id="27" src="SquareSmall_ice.png" x="92" y="170" width="88" height="22" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="88" srcheight="22"/>
+    <textureregion id="28" src="SquareSmall_rock.png" x="2" y="170" width="88" height="22" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="88" srcheight="22"/>
+    <textureregion id="29" src="SquareSmall_wood.png" x="182" y="170" width="88" height="22" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="88" srcheight="22"/>
+    <textureregion id="30" src="TriaEmpty_ice.png" x="2" y="553" width="336" height="84" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="336" srcheight="84"/>
+    <textureregion id="31" src="TriaEmpty_rock.png" x="2" y="639" width="336" height="84" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="336" srcheight="84"/>
+    <textureregion id="32" src="TriaEmpty_wood.png" x="340" y="639" width="336" height="84" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="336" srcheight="84"/>
+    <textureregion id="33" src="TriaFull_ice.png" x="634" y="383" width="328" height="82" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="328" srcheight="82"/>
+    <textureregion id="34" src="TriaFull_rock.png" x="2" y="467" width="328" height="82" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="328" srcheight="82"/>
+    <textureregion id="35" src="TriaFull_wood.png" x="304" y="383" width="328" height="82" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="328" srcheight="82"/>
+    <textureregion id="36" src="other_1.png" x="154" y="306" width="179" height="59" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="179" srcheight="59"/>
+    <textureregion id="37" src="other_2.png" x="2" y="306" width="150" height="48" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="150" srcheight="48"/>
+    <textureregion id="38" src="other_3.png" x="678" y="639" width="92" height="199" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="92" srcheight="199"/>
+</texture>

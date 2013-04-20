@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texture version="1" file="BackGrounds.png" type="bitmap" width="841" height="314" pixelformat="RGBA_8888" minfilter="linear" magfilter="linear" wrapt="clamp" wraps="clamp" premultiplyalpha="false">
+    <!-- Created with TexturePacker http://texturepacker.com -->
+    <!-- $TexturePacker:SmartUpdate:ed9727ab65287440fab507e5aee91f5e$ -->
+    <textureregion id="0" src="Background.png" x="2" y="2" width="489" height="310" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="489" srcheight="310"/>
+    <textureregion id="1" src="Earth.png" x="493" y="2" width="346" height="204" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="346" srcheight="204"/>
+</texture>

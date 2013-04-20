@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texture version="1" file="Sprites.png" type="bitmap" width="1138" height="897" pixelformat="RGBA_8888" minfilter="linear" magfilter="linear" wrapt="clamp" wraps="clamp" premultiplyalpha="false">
+    <!-- Created with TexturePacker http://texturepacker.com -->
+    <!-- $TexturePacker:SmartUpdate:836a531a6a4d47463e2550f96e139fa1$ -->
+    <textureregion id="0" src="black bird.png" x="429" y="523" width="434" height="81" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="434" srcheight="81"/>
+    <textureregion id="1" src="blue bird.png" x="361" y="830" width="124" height="30" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="124" srcheight="30"/>
+    <textureregion id="2" src="helmet pig.png" x="2" y="358" width="837" height="84" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="837" srcheight="84"/>
+    <textureregion id="3" src="king pig.png" x="2" y="2" width="1134" height="153" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="1134" srcheight="153"/>
+    <textureregion id="4" src="large pig.png" x="2" y="259" width="891" height="97" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="891" srcheight="97"/>
+    <textureregion id="5" src="medium pig.png" x="2" y="444" width="711" height="77" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="711" srcheight="77"/>
+    <textureregion id="6" src="old pig.png" x="2" y="157" width="990" height="100" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="990" srcheight="100"/>
+    <textureregion id="7" src="red bird.png" x="2" y="830" width="255" height="45" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="255" srcheight="45"/>
+    <textureregion id="8" src="sling.png" x="487" y="830" width="18" height="26" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="18" srcheight="26"/>
+    <textureregion id="9" src="slingshot.png" x="918" y="618" width="86" height="210" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="86" srcheight="210"/>
+    <textureregion id="10" src="small pig.png" x="484" y="618" width="432" height="46" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="432" srcheight="46"/>
+    <textureregion id="11" src="white bird egg.png" x="259" y="830" width="100" height="65" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="100" srcheight="65"/>
+    <textureregion id="12" src="white bird.png" x="2" y="523" width="425" height="93" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="425" srcheight="93"/>
+    <textureregion id="13" src="yellow bird.png" x="2" y="618" width="480" height="54" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="480" srcheight="54"/>
+</texture>
