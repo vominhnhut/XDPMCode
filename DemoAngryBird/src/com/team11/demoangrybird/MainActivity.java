@@ -59,72 +59,6 @@ public class MainActivity extends SimpleBaseGameActivity {
 	private Camera mCamera;
 	private Scene mMainScene;
 
-	private TextureRegion mtext;
-	private TexturePackTextureRegionLibrary texturePackLibrary;
-	private TexturePack texturePack;
-	private BitmapTextureAtlas mBitmapTextureAtlas;
-
-	// TiledTexureRegion Sprites
-	private TiledTextureRegion black_Bird_TiledTexture;
-	private TiledTextureRegion blue_Bird_TiledTexture;
-	private TiledTextureRegion helmet_Pig_TiledTexture;
-	private TiledTextureRegion king_Big_TiledTexture;
-	private TiledTextureRegion large_Pig_TiledTexture;
-	private TiledTextureRegion medium_Pig_TiledTexture;
-	private TiledTextureRegion old_Pig_TiledTexture;
-	private TiledTextureRegion red_Bird_TiledTexture;
-	private TiledTextureRegion sling_TiledTexture;
-	private TiledTextureRegion slingshot_TiledTexture;
-	private TiledTextureRegion small_Pig_TiledTexture;
-	private TiledTextureRegion white_Bird_Egg_TiledTexture;
-	private TiledTextureRegion white_Bird_TiledTexture;
-	private TiledTextureRegion yellow_Bird_TiledTexture;
-
-	// TiledTextureRegion Background
-	private TiledTextureRegion BackGround_TiledTexture;
-	private TiledTextureRegion Earth_TiledTexture;
-
-	// TiledTextureRegion Rock
-	private TiledTextureRegion CirBig_ice_TiledTexture;
-	private TiledTextureRegion CirBig_rock_TiledTexture;
-	private TiledTextureRegion CirBig_wood_TiledTexture;
-	private TiledTextureRegion CirMedium_ice_TiledTexture;
-	private TiledTextureRegion CirMedium_rock_TiledTexture;
-	private TiledTextureRegion CirMedium_wood_TiledTexture;
-	private TiledTextureRegion RecEmpty_ice_TiledTexture;
-	private TiledTextureRegion RecEmpty_rock_TiledTexture;
-	private TiledTextureRegion RecEmpty_wood_TiledTexture;
-	private TiledTextureRegion RecFull_ice_TiledTexture;
-	private TiledTextureRegion RecFull_roc_TiledTexture;
-	private TiledTextureRegion RecFull_wood_TiledTexture;
-	private TiledTextureRegion RecLong_ice_TiledTexture;
-	private TiledTextureRegion RecLong_rock_TiledTexture;
-	private TiledTextureRegion RecLong_wood_TiledTexture;
-	private TiledTextureRegion RecMedium_ice_TiledTexture;
-	private TiledTextureRegion RecMedium_rock_TiledTexture;
-	private TiledTextureRegion RecMedium_wood_TiledTexture;
-	private TiledTextureRegion RecShort_ice_TiledTexture;
-	private TiledTextureRegion RecShort_rock_TiledTexture;
-	private TiledTextureRegion RecShort_wood_TiledTexture;
-	private TiledTextureRegion RecShortest_ice_TiledTexture;
-	private TiledTextureRegion RecShortest_rock_TiledTexture;
-	private TiledTextureRegion RecShortest_wood_TiledTexture;
-	private TiledTextureRegion SquareMedium_ice_TiledTexture;
-	private TiledTextureRegion SquareMedium_rock_TiledTexture;
-	private TiledTextureRegion SquareMedium_wood_TiledTexture;
-	private TiledTextureRegion SquareSmall_ice_TiledTexture;
-	private TiledTextureRegion SquareSmall_rock_TiledTexture;
-	private TiledTextureRegion SquareSmall_wood_TiledTexture;
-	private TiledTextureRegion TriaEmpty_ice_TiledTexture;
-	private TiledTextureRegion TriaEmpty_rock_TiledTexture;
-	private TiledTextureRegion TriaEmpty_wood_TiledTexture;
-	private TiledTextureRegion TriaFull_ice_TiledTexture;
-	private TiledTextureRegion TriaFull_rock_TiledTexture;
-	private TiledTextureRegion TriaFull_wood_TiledTexture;
-	private TiledTextureRegion other_1_TiledTexture;
-	private TiledTextureRegion other_2_TiledTexture;
-	private TiledTextureRegion other_3_TiledTexture;
-
 	int nSprites = 5;
 	Sprite[] sprite_SquareMedium_wood;
 	Sprite[] sprite_RecShort_wood;
@@ -132,32 +66,20 @@ public class MainActivity extends SimpleBaseGameActivity {
 	Body[] body_sprite_SquareMedium_wood;
 
 	// CÁC BIẾN ĐƯỢC SỬ DỤNG
-	private boolean isDrawing = false;
-	// Sprite sprite1 = null;
 	float TouchX = 0;
 	float TouchY = 0;
 	public PhysicsConnector phyconnect = null;
 	public boolean istouchScene = false;
 	public PhysicsWorld physicworld;
 	public Rectangle staticRect;
-	public Body dynamicBody = null;
 	public Body staticBody;
 	final FixtureDef boxFixtureDef = PhysicsFactory.createFixtureDef(20f, 0.3f,	0.9f);
 
 	// PHẦN DÙNG VẼ NÁ
-	static float px = 200;
-	static float py = 110;
-	static final float MAX_DISTANCE = 100f;
-	public static final Vector2 SLINGSHOT_CENTER = new Vector2(300 - px, 300 - py);
-
 	private TextureRegion textureRegion1, textureRegion2, textureRegion3, angryBird_textureRegion;
 
 	// CHiM TRÊN NÁ
-	Body bodychim = null;
-	public float distance; // khoang cach tu chim den tam cua na.
-	private boolean isClick = true;
-	private Line line1, line2;
-	private Vector2 endPoint = new Vector2();
+	// khoang cach tu chim den tam cua na.
 	boolean isScene = false;
 	
 	@Override
@@ -167,123 +89,18 @@ public class MainActivity extends SimpleBaseGameActivity {
 		EngineOptions engine = new EngineOptions(true, ScreenOrientation.LANDSCAPE_FIXED, new FillResolutionPolicy(),this.mCamera);
 		return engine;
 	}
-
-	void loadTiledTextureSprites() {
-		try {
-			texturePack = new TexturePackLoader(getTextureManager(), "gfx/").loadFromAsset(getAssets(), "Sprites.xml");
-			texturePack.loadTexture();
-			texturePackLibrary = texturePack.getTexturePackTextureRegionLibrary();
-		} catch (TexturePackParseException e) 
-		{
-			Debug.e(e);
-		}
-
-		black_Bird_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MySprites.BLACK_BIRD_ID, 7, 1);
-		blue_Bird_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MySprites.BLUE_BIRD_ID, 4, 1);
-		red_Bird_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MySprites.RED_BIRD_ID, 5, 1);
-		white_Bird_Egg_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MySprites.WHITE_BIRD_EGG_ID, 1, 1);
-		white_Bird_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MySprites.WHITE_BIRD_ID, 1, 1);
-		yellow_Bird_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MySprites.YELLOW_BIRD_ID, 6, 1);
-		
-		helmet_Pig_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MySprites.HELMET_PIG_ID, 9, 1);
-		king_Big_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MySprites.KING_PIG_ID, 9, 1);
-		large_Pig_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MySprites.LARGE_PIG_ID, 9, 1);
-		medium_Pig_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MySprites.MEDIUM_PIG_ID, 9, 1);
-		old_Pig_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MySprites.OLD_PIG_ID, 9, 1);
-		small_Pig_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MySprites.SMALL_PIG_ID, 9, 1);
-		
-		sling_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MySprites.SLING_ID, 1, 1);
-		slingshot_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MySprites.SLINGSHOT_ID, 2, 1);		
-	}
-
-	void loadTiledTextureBlocks() {
-		try {
-			texturePack = new TexturePackLoader(getTextureManager(), "gfx/").loadFromAsset(getAssets(), "Blocks.xml");
-			texturePack.loadTexture();
-			texturePackLibrary = texturePack.getTexturePackTextureRegionLibrary();
-
-		} catch (TexturePackParseException e) 
-		{
-			Debug.e(e);
-		}
-		CirBig_ice_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MyBlocks.CIRBIG_ICE_ID, 4, 1);
-		CirBig_rock_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MyBlocks.CIRBIG_ROCK_ID, 4, 1);
-		CirBig_wood_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MyBlocks.CIRBIG_WOOD_ID, 4, 1);
-		CirMedium_ice_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MyBlocks.CIRMEDIUM_ICE_ID, 4, 1);
-		CirMedium_rock_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MyBlocks.CIRMEDIUM_ROCK_ID, 4, 1);
-		CirMedium_wood_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MyBlocks.CIRMEDIUM_WOOD_ID, 4, 1);
-		
-		RecEmpty_ice_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MyBlocks.RECEMPTY_ICE_ID, 4, 1);
-		RecEmpty_rock_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MyBlocks.RECEMPTY_ROCK_ID, 4, 1);
-		RecEmpty_wood_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MyBlocks.RECEMPTY_ROCK_ID, 4, 1);
-		
-		RecFull_ice_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MyBlocks.RECFULL_ICE_ID, 4, 1);
-		RecFull_roc_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MyBlocks.RECFULL_ROCK_ID, 4, 1);
-		RecFull_wood_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MyBlocks.RECFULL_WOOD_ID, 4, 1);
-		
-		RecLong_ice_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MyBlocks.RECLONG_ICE_ID, 4, 1);
-		RecLong_rock_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MyBlocks.RECLONG_ROCK_ID, 4, 1);
-		RecLong_wood_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MyBlocks.RECLONG_WOOD_ID, 4, 1);
-		
-		RecMedium_ice_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MyBlocks.RECMEDIUM_ICE_ID, 4, 1);
-		RecMedium_rock_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MyBlocks.RECLONG_ROCK_ID, 4, 1);
-		RecMedium_wood_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MyBlocks.RECMEDIUM_WOOD_ID, 4, 1);
-		
-		RecShort_ice_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MyBlocks.RECSHORT_ICE_ID, 4, 1);
-		RecShort_rock_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MyBlocks.RECSHORT_ROCK_ID, 4, 1);
-		RecShort_wood_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MyBlocks.RECSHORT_WOOD_ID, 4, 1);
-		RecShortest_ice_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MyBlocks.RECSHORTEST_ICE_ID, 4, 1);
-		RecShortest_rock_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MyBlocks.RECSHORTEST_ROCK_ID, 4, 1);
-		RecShortest_wood_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MyBlocks.RECSHORTEST_WOOD_ID, 4, 1);
-		
-		SquareMedium_ice_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MyBlocks.SQUAREMEDIUM_ICE_ID, 4, 1);
-		SquareMedium_rock_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MyBlocks.SQUAREMEDIUM_ROCK_ID, 4, 1);
-		SquareMedium_wood_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MyBlocks.SQUAREMEDIUM_WOOD_ID, 4, 1);
-		
-		SquareSmall_ice_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MyBlocks.SQUARESMALL_ICE_ID, 4, 1);
-		SquareSmall_rock_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MyBlocks.SQUARESMALL_ROCK_ID, 4, 1);
-		SquareSmall_wood_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MyBlocks.SQUARESMALL_WOOD_ID, 4, 1);
-		
-		TriaEmpty_ice_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MyBlocks.TRIAEMPTY_ICE_ID, 4, 1);
-		TriaEmpty_rock_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MyBlocks.TRIAEMPTY_ROCK_ID, 4, 1);
-		TriaEmpty_wood_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MyBlocks.TRIAEMPTY_WOOD_ID, 4, 1);
-		
-		TriaFull_ice_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MyBlocks.TRIAFULL_ICE_ID, 4, 1);
-		TriaFull_rock_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MyBlocks.TRIAFULL_ROCK_ID, 4, 1);
-		TriaFull_wood_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MyBlocks.TRIAFULL_WOOD_ID, 4, 1);
-		
-		other_1_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MyBlocks.OTHER_1_ID, 1, 1);
-		other_2_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MyBlocks.OTHER_2_ID, 1, 1);
-		other_3_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MyBlocks.OTHER_3_ID, 1, 1);
-	}
-
-	void loadTiledTextureBackGrounds() {
-		try {
-			texturePack = new TexturePackLoader(getTextureManager(), "gfx/").loadFromAsset(getAssets(), "BackGrounds.xml");
-			texturePack.loadTexture();
-			texturePackLibrary = texturePack.getTexturePackTextureRegionLibrary();
-		} 
-		catch (TexturePackParseException e) 
-		{
-			Debug.e(e);
-		}
-
-		BackGround_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MyBackGrounds.BACKGROUND_ID, 1, 1);
-		Earth_TiledTexture = (TiledTextureRegion) texturePackLibrary.get(MyBackGrounds.EARTH_ID, 1, 1);
-	}
+	
+	loadTexturePacker LoadTexturePacker;
 
 	@Override
 	protected void onCreateResources() 
 	{
-		loadTiledTextureSprites();
-		loadTiledTextureBlocks();
-		loadTiledTextureBackGrounds();
-
+		LoadTexturePacker = new loadTexturePacker(this, this);
 		// Load Ná, Chim
-		angryBird_textureRegion = (TextureRegion) red_Bird_TiledTexture.getTextureRegion(0);
-		textureRegion1 = (TextureRegion) slingshot_TiledTexture.getTextureRegion(0);
-		textureRegion2 = (TextureRegion) slingshot_TiledTexture.getTextureRegion(1);
-		textureRegion3 = (TextureRegion) sling_TiledTexture.getTextureRegion(0);
+		angryBird_textureRegion = (TextureRegion) LoadTexturePacker.red_Bird_TiledTexture.getTextureRegion(0);
+		textureRegion1 = (TextureRegion) LoadTexturePacker.slingshot_TiledTexture.getTextureRegion(0);
+		textureRegion2 = (TextureRegion) LoadTexturePacker.slingshot_TiledTexture.getTextureRegion(1);
+		textureRegion3 = (TextureRegion) LoadTexturePacker.sling_TiledTexture.getTextureRegion(0);
 	}
 
 	// Sprite sprite;
@@ -294,6 +111,10 @@ public class MainActivity extends SimpleBaseGameActivity {
 		this.mMainScene.registerUpdateHandler(this.physicworld);
 	}
 
+	Sprite spriteBackGround;
+	Sprite spriteEarth;
+	ParallaxBackground background;
+	
 	@Override
 	protected Scene onCreateScene() {
 		this.mEngine.registerUpdateHandler(new FPSLogger());
@@ -301,19 +122,20 @@ public class MainActivity extends SimpleBaseGameActivity {
 		this.mMainScene = new Scene();
 		
 		createPhysicWorld();
-
-		//ĐƯỜNG BAY
 		
 		// LOAD BACKGROUND
-		ParallaxBackground background = new ParallaxBackground(0.569f, 0.796f, 0.871f);		
-		Sprite spriteBackGround = new Sprite(CAMERA_HEIGHT / 2,(CAMERA_WIDTH / 2)-230,
-				(TextureRegion) BackGround_TiledTexture.getTextureRegion(0), getVertexBufferObjectManager());
+		background = new ParallaxBackground(0.569f, 0.796f,
+				0.871f);
 
-		Sprite spriteEarth = new Sprite(0,-80,
-				(TextureRegion) Earth_TiledTexture.getTextureRegion(0),getVertexBufferObjectManager());
+		spriteBackGround = new Sprite(CAMERA_HEIGHT / 2,(CAMERA_WIDTH / 2) - 230,
+				(TextureRegion) LoadTexturePacker.BackGround_TiledTexture.getTextureRegion(0), getVertexBufferObjectManager());
 
-		background.attachParallaxEntity(new ParallaxEntity(10, spriteBackGround));		
-		background.attachParallaxEntity(new ParallaxEntity(10, spriteEarth));		
+		spriteEarth = new Sprite(0, -80,(TextureRegion) LoadTexturePacker.Earth_TiledTexture.getTextureRegion(0), getVertexBufferObjectManager());
+
+		background.attachParallaxEntity(new ParallaxEntity(10, spriteBackGround));
+		background.attachParallaxEntity(new ParallaxEntity(10, spriteEarth));
+
+		mMainScene.attachChild(spriteEarth);
 		mMainScene.setBackground(background);
 		
 		// VẼ CÁI NÁ
@@ -333,9 +155,7 @@ public class MainActivity extends SimpleBaseGameActivity {
 				return false;
 			}
 		};
-
-		mMainScene.setOnSceneTouchListener(touchScene);
-		
+		mMainScene.setOnSceneTouchListener(touchScene);		
 
 		mMainScene.registerUpdateHandler(new IUpdateHandler() {
 			
@@ -372,7 +192,7 @@ public class MainActivity extends SimpleBaseGameActivity {
 		for(int i=0; i<nSprites; i++)
 		{
 			go_vuong[i] = new SquareMedium_wood(400, 10 + i * nSprites, 
-												SquareMedium_wood_TiledTexture.getTextureRegion(0), 
+												LoadTexturePacker.SquareMedium_wood_TiledTexture.getTextureRegion(0), 
 												getVertexBufferObjectManager(),this.mMainScene);
 			go_vuong[i].CreateBody_bird(physicworld);
 		}
@@ -382,7 +202,7 @@ public class MainActivity extends SimpleBaseGameActivity {
 		for(int i=0; i<nSprites; i++)
 		{
 			go_dai[i] = new RecShort_wood(500 + i * 2,10 + i * nSprites, 
-											RecShort_wood_TiledTexture.getTextureRegion(0), 
+											LoadTexturePacker.RecShort_wood_TiledTexture.getTextureRegion(0), 
 											getVertexBufferObjectManager(), this.mMainScene);
 			go_dai[i].CreateBody_bird(physicworld);
 		}
@@ -393,8 +213,7 @@ public class MainActivity extends SimpleBaseGameActivity {
 	}
 
 	// ĐẶT VỊ TRÍ CON CHIM
-	private void startPositionS(Body dynamicbodyline,
-			float angle, float x, float y) {
+	private void startPositionS(Body dynamicbodyline, float angle, float x, float y) {
 		dynamicbodyline.setActive(false);
 		dynamicbodyline.setAngularVelocity(0);
 		dynamicbodyline.resetMassData();

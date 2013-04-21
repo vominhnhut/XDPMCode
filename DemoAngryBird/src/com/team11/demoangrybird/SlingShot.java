@@ -37,7 +37,7 @@ public class SlingShot
 	public SlingShot(ITextureRegion textureRegion1,ITextureRegion textureRegion2,ITextureRegion textureRegion3, 
 					VertexBufferObjectManager Ver, Scene mScene)
 	{
-		tree_right= new Sprite(SLINGSHOT_CENTER.x + 19,	SLINGSHOT_CENTER.y - 70, textureRegion2, Ver);
+		tree_right= new Sprite(SLINGSHOT_CENTER.x + 19,	SLINGSHOT_CENTER.y - 67, textureRegion2, Ver);
 		mScene.attachChild(tree_right);
 		tree_right.setZIndex(0);
 		
@@ -134,7 +134,7 @@ public class SlingShot
 						break;
 					//di chuyển chỗ chạm
 					case TouchEvent.ACTION_MOVE:
-				
+						
 						part.setPosition(endPoint.x, endPoint.y);
 						
 						line1.setPosition(SLINGSHOT_CENTER.x - 22,
@@ -146,7 +146,7 @@ public class SlingShot
 											+ endPoint.x;
 						float birdPosY1 = (SLINGSHOT_CENTER.y - endPoint.y) * 0.2f
 											+ endPoint.y;
-
+						if()	
 							startPositionS(bird, 0, birdPosX1, birdPosY1);
 							touch = new Vector2(birdPosX1, birdPosY1);
 						}
