@@ -76,7 +76,7 @@ public class MainActivity extends SimpleBaseGameActivity {
 	final FixtureDef boxFixtureDef = PhysicsFactory.createFixtureDef(20f, 0.3f,	0.9f);
 
 	// PHẦN DÙNG VẼ NÁ
-	private TextureRegion textureRegion1, textureRegion2, textureRegion3, angryBird_textureRegion;
+	private TextureRegion textureRegionLeft, textureRegionRight, textureRegionPart, angryBird_textureRegion;
 
 	// CHiM TRÊN NÁ
 	// khoang cach tu chim den tam cua na.
@@ -98,9 +98,9 @@ public class MainActivity extends SimpleBaseGameActivity {
 		LoadTexturePacker = new loadTexturePacker(this, this);
 		// Load Ná, Chim
 		angryBird_textureRegion = (TextureRegion) LoadTexturePacker.red_Bird_TiledTexture.getTextureRegion(0);
-		textureRegion1 = (TextureRegion) LoadTexturePacker.slingshot_TiledTexture.getTextureRegion(0);
-		textureRegion2 = (TextureRegion) LoadTexturePacker.slingshot_TiledTexture.getTextureRegion(1);
-		textureRegion3 = (TextureRegion) LoadTexturePacker.sling_TiledTexture.getTextureRegion(0);
+		textureRegionLeft = (TextureRegion) LoadTexturePacker.slingshot_TiledTexture.getTextureRegion(0);
+		textureRegionRight = (TextureRegion) LoadTexturePacker.slingshot_TiledTexture.getTextureRegion(1);
+		textureRegionPart = (TextureRegion) LoadTexturePacker.sling_TiledTexture.getTextureRegion(0);
 	}
 
 	// Sprite sprite;
@@ -141,7 +141,7 @@ public class MainActivity extends SimpleBaseGameActivity {
 		// VẼ CÁI NÁ
 		final SlingShot NA;
 		
-		NA = new SlingShot(textureRegion1, textureRegion2, textureRegion3, getVertexBufferObjectManager(), mMainScene);
+		NA = new SlingShot(textureRegionLeft, textureRegionRight, textureRegionPart, getVertexBufferObjectManager(), mMainScene);
 		final Bird_red bird = new Bird_red(NA.SLINGSHOT_CENTER.x, NA.SLINGSHOT_CENTER.y, 
 											angryBird_textureRegion, 
 											getVertexBufferObjectManager(), this.mMainScene);

@@ -11,6 +11,8 @@ import org.andengine.opengl.texture.region.ITextureRegion;
 import org.andengine.opengl.texture.region.TextureRegion;
 import org.andengine.opengl.vbo.VertexBufferObjectManager;
 
+import android.util.Log;
+
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 
@@ -20,6 +22,7 @@ public class SlingShot
 	static float py = 110;
 	static final float MAX_DISTANCE = 150f;			//khoảng cách tối đa
 	static final float MAX_TOUCH_DISTANCE = 100f;	//vùng có thể chạm
+	static final float MIN_SHOT_DISTANCE = 50f;
 	public static final Vector2 SLINGSHOT_CENTER = new Vector2(300 - px, 300 - py);	//tâm cái ná
 
 	// CHiM TRÊN NÁ
@@ -30,50 +33,54 @@ public class SlingShot
 	
 	private Vector2 endPoint = new Vector2();	//vị trí chạm
 
-	final Sprite tree_left;
-	final Sprite tree_right;
-	final Sprite part;
+	final Sprite tree_left; // phần ná bên trái
+	final Sprite tree_right; // phần ná bên trái
+	final Sprite part; // nơi đặt chim 
 	
+	
+	// khởi tạo
 	public SlingShot(ITextureRegion textureRegion1,ITextureRegion textureRegion2,ITextureRegion textureRegion3, 
 					VertexBufferObjectManager Ver, Scene mScene)
 	{
 		tree_right= new Sprite(SLINGSHOT_CENTER.x + 19,	SLINGSHOT_CENTER.y - 67, textureRegion2, Ver);
-		mScene.attachChild(tree_right);
-		tree_right.setZIndex(0);
+		mScene.attachChild(tree_right); //Scene add tree_right vào
+		tree_right.setZIndex(0); // đặt chiều sâu của tree_right
 		
-		line2 = new Line(0, 0, 0, 0, 10, Ver);
-		line2.setColor(0.4f, 0, 0);
-		mScene.attachChild(line2);
-		line2.setZIndex(1);	
+		line2 = new Line(0, 0, 0, 0, 10, Ver); // tạo mới dây ná2
+		line2.setColor(0.4f, 0, 0); // đặt màu cho dây
+		mScene.attachChild(line2); // thêm dây vào Scene
+		line2.setZIndex(1);	 //đặt chiều sâu cho line2
 		
-		part = new Sprite(SLINGSHOT_CENTER.x, SLINGSHOT_CENTER.y + 2, textureRegion3, Ver);
-		mScene.attachChild(part);
-		part.setZIndex(3);
+		part = new Sprite(SLINGSHOT_CENTER.x, SLINGSHOT_CENTER.y + 2, textureRegion3, Ver); // da ná
+		mScene.attachChild(part); // thêm da ná vào scene
+		part.setZIndex(3); // đặt chiều sâu cho da ná
 		
-		line1 = new Line(0, 0, 0, 0, 10, Ver);
-		line1.setColor(0.4f, 0, 0);
-		mScene.attachChild(line1);
-		line1.setZIndex(4);	
+		line1 = new Line(0, 0, 0, 0, 10, Ver); // tạo mới dây ná1
+		line1.setColor(0.4f, 0, 0); // đặt màu
+		mScene.attachChild(line1); //thêm dây vào Scene
+		line1.setZIndex(4);	 // đặt độ sâu cho dây ná
 		
 		tree_left = new Sprite(SLINGSHOT_CENTER.x - 10,	SLINGSHOT_CENTER.y - 68, textureRegion1, Ver);
 		mScene.attachChild(tree_left);
 		tree_left.setZIndex(5);					
 		
-		part.setRotation(-45);
-		mScene.sortChildren();
+		part.setRotation(-45); //xoay dây ná 1 góc 45 độ
+		mScene.sortChildren(); // cập nhật lại độ sâu của các đối tượng trong scene
 	}
 
 	boolean isShoot=false;
 	Vector2 touch= null;
+	
+	
+	//vòng lặp xử lý sự kiện của ná
 	public void setSlingShot(TouchEvent pSceneTouchEvent, Body bird, boolean isScene)
 	{
-				float touchDistance = (float) (Math.pow((float) Math.pow(pSceneTouchEvent.getX() - part.getX(), 2)
-									+ (float) Math.pow(pSceneTouchEvent.getY() - part.getY(), 2), 1 / 2f));
 				
-				distance = (float) Math.pow((float) Math.pow((SLINGSHOT_CENTER.x - pSceneTouchEvent.getX()), 2)
-											+ (float) Math.pow(	(SLINGSHOT_CENTER.y - pSceneTouchEvent.getY()), 2), 0.5f);
-					
-					
+				//khoảng cách từ điểm chạm đến da ná
+				float touchDistance = (new Vector2(part.getX(), part.getY())).dst(pSceneTouchEvent.getX(), pSceneTouchEvent.getY());
+			
+				distance = SLINGSHOT_CENTER.dst(pSceneTouchEvent.getX(), pSceneTouchEvent.getY());	
+					//nếu khoảng cách từ điểm chạm đến da ná nằm trong vùng có bán kính cho phép thì có thể chạm vào da ná.
 					if(touchDistance <= MAX_TOUCH_DISTANCE) 
 					{
 						isBirdTouch = true;
@@ -81,6 +88,7 @@ public class SlingShot
 					
 					if(isBirdTouch)
 					{
+						
 						if (distance <= MAX_DISTANCE) 
 						{							
 							endPoint.x = pSceneTouchEvent.getX();
@@ -96,7 +104,7 @@ public class SlingShot
 									* rate + pSceneTouchEvent.getY();
 						}					
 					
-					int eventaction = pSceneTouchEvent.getAction();					
+					int eventaction = pSceneTouchEvent.getAction();	//lấy sự kiện touch				
 					switch (eventaction) {
 					//khi chạm xuống
 					case TouchEvent.ACTION_DOWN:
@@ -112,28 +120,46 @@ public class SlingShot
 						float birdPosY = (SLINGSHOT_CENTER.y - endPoint.y) * 0.2f
 											+ endPoint.y;
 						
-							startPositionS(bird, 0, birdPosX, birdPosY);
-							touch = new Vector2(birdPosX, birdPosY);
-							
-						//không cho
+						
+						touch = new Vector2(birdPosX, birdPosY);
+						startPositionS(bird, 0, birdPosX, birdPosY);
 						break;
-					//khi không chạm
+					//khi không chạm nữa
 					case TouchEvent.ACTION_UP:						
-						//xét bắn chim						
-						isBirdTouch = false;
 						
 						//đặt lại vị trí
+						Log.i("yes","UPPPPPPPPPPPPPPPPPPPPPP");
+						if(touch.dst(SLINGSHOT_CENTER) <= MIN_SHOT_DISTANCE) {
+							Log.i("yes","");
+							
+							touch = SLINGSHOT_CENTER;
+							startPositionS(bird, 0, SLINGSHOT_CENTER.x, SLINGSHOT_CENTER.y);
+							isShoot = false;
+						}
+						else
+							isShoot = true;
+						
 						line1.setPosition(SLINGSHOT_CENTER.x, SLINGSHOT_CENTER.y,
 											SLINGSHOT_CENTER.x - 22, SLINGSHOT_CENTER.y);
 						line2.setPosition(SLINGSHOT_CENTER.x, SLINGSHOT_CENTER.y,
 											SLINGSHOT_CENTER.x + 22, SLINGSHOT_CENTER.y);
 						part.setPosition(SLINGSHOT_CENTER.x, SLINGSHOT_CENTER.y);
 						
+						isBirdTouch = false;
 						//xét khi bằn
-							isShoot = true;
+							
 						break;
 					//di chuyển chỗ chạm
 					case TouchEvent.ACTION_MOVE:
+						Log.i("yes","MOVEEEEEEEEEEEEEEEEEEEE");
+						if(touch.dst(SLINGSHOT_CENTER) <= MIN_SHOT_DISTANCE) {
+							Log.i("MOVE"," <<<<<<<<<<<<<<<<<<<<<<");
+						}
+						
+						if(Math.abs(endPoint.x  - SLINGSHOT_CENTER.x) <= 20 && (SLINGSHOT_CENTER.y - endPoint.y) >= (MAX_DISTANCE - 20))
+						{
+							endPoint = new Vector2(SLINGSHOT_CENTER.x, SLINGSHOT_CENTER.y - MAX_DISTANCE + 90);
+						}
 						
 						part.setPosition(endPoint.x, endPoint.y);
 						
@@ -146,10 +172,11 @@ public class SlingShot
 											+ endPoint.x;
 						float birdPosY1 = (SLINGSHOT_CENTER.y - endPoint.y) * 0.2f
 											+ endPoint.y;
-						if()	
-							startPositionS(bird, 0, birdPosX1, birdPosY1);
-							touch = new Vector2(birdPosX1, birdPosY1);
-						}
+							
+						startPositionS(bird, 0, birdPosX1, birdPosY1);
+						touch = new Vector2(birdPosX1, birdPosY1);
+						
+					}
 					
 		}
 	}
