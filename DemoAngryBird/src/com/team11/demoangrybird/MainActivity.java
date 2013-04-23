@@ -51,6 +51,7 @@ import com.badlogic.gdx.physics.box2d.ContactImpulse;
 import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.Manifold;
+import com.team11.physicseditorloader.PhysicsEditorShapeLibrary;
 
 public class MainActivity extends SimpleBaseGameActivity {
 	static final int CAMERA_WIDTH = 800;
@@ -74,7 +75,7 @@ public class MainActivity extends SimpleBaseGameActivity {
 	public Rectangle staticRect;
 	public Body staticBody;
 	final FixtureDef boxFixtureDef = PhysicsFactory.createFixtureDef(20f, 0.3f,	0.9f);
-
+private PhysicsEditorShapeLibrary physicseditor;
 	// PHẦN DÙNG VẼ NÁ
 	private TextureRegion textureRegionLeft, textureRegionRight, textureRegionPart, angryBird_textureRegion;
 
