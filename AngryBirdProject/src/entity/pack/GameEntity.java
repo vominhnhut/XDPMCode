@@ -56,9 +56,18 @@ public abstract class GameEntity {
 	 */
 	private PhysicsConnector physic_connector;
 	
+	/**
+	 * Độ bền của vật liệu
+	 */
+	private float durability;
+	
+	/**
+	 * Điểm cộng
+	 */
+	private float point;
+	
 	public GameEntity(Vector2 position, float density, float friction,
-			float elastic, AnimatedSprite sprite_list,
-			PhysicsConnector physic_connector, PhysicsWorld physics_world) {
+			float elastic, AnimatedSprite sprite_list, PhysicsWorld physics_world) {
 		super();
 		this.position = position;
 		this.density = density;
@@ -66,7 +75,6 @@ public abstract class GameEntity {
 		this.elastic = elastic;
 		this.body = body;
 		this.sprite_list = sprite_list;
-		this.physic_connector = physic_connector;
 		CreateBody(physics_world);
 	}
 	
@@ -75,12 +83,12 @@ public abstract class GameEntity {
 
 	}
 	
-	public void PostSolve(Contact contact, ContactImpulse impulse)
+	public void PostSolve(Body body ,Contact contact, ContactImpulse impulse)
 	{
 		
 	}
 	
-	public void preSolve(Contact contact, Manifold oldManifold)
+	public void preSolve(Body body ,Contact contact, Manifold oldManifold)
 	{
 		
 	}

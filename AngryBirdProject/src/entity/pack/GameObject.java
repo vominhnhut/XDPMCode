@@ -13,20 +13,10 @@ public class GameObject extends GameEntity {
 	 */
 	private float rotation;
 	
-	/**
-	 * Độ bền của vật liệu
-	 */
-	private float durability;
-	
-	/**
-	 * Điểm cộng
-	 */
-	private float point;
-	
 	public GameObject(Vector2 position, float density, float friction,
 			float elastic, AnimatedSprite sprite_list,
 			PhysicsConnector physic_connector, PhysicsWorld physics_world) {
-		super(position, density, friction, elastic, sprite_list, physic_connector,
+		super(position, density, friction, elastic, sprite_list,
 				physics_world);
 		// TODO Auto-generated constructor stub
 	}
