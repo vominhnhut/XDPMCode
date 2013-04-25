@@ -1,7 +1,7 @@
 // Definitions for sprite sheet BirdAndPig
 // Created with www.texturepacker.com
 
-// $TexturePacker:SmartUpdate:84eef17ac0bef8ac8a361293465a6756$
+// $TexturePacker:SmartUpdate:19ad5c3160c544853e7bd00d4ebc9ff5$
 
 package Texture;
 

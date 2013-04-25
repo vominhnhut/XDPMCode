@@ -1,7 +1,7 @@
 // Definitions for sprite sheet Block
 // Created with www.texturepacker.com
 
-// $TexturePacker:SmartUpdate:cdce16093ec9c7978734fe2a3f2b04da$
+// $TexturePacker:SmartUpdate:0e938b842c0a92479896d8f54925cc0a$
 
 package Texture;
 
