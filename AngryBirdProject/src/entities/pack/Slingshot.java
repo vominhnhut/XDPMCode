@@ -10,7 +10,8 @@ import org.andengine.extension.physics.box2d.util.constants.PhysicsConstants;
 import org.andengine.input.touch.TouchEvent;
 import org.andengine.opengl.vbo.VertexBufferObjectManager;
 import org.andengine.util.math.MathUtils;
-import xdpm.nhom11.angrybirdspoject.bird.Bird;
+
+import xdpm.nhom11.angrybirdsproject.bird.Bird;
 import xdpm.nhom11.angrybirdsproject.physicseditor.PhysicsEditorShapeLibrary;
 import xdpm.nhom11.angrybirdsproject.texturepackersupport.TexturePackerHelper;
 

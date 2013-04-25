@@ -1,4 +1,4 @@
-package xdpm.nhom11.angrybirdspoject.bird;
+package xdpm.nhom11.angrybirdsproject.bird;
 
 import org.andengine.entity.sprite.AnimatedSprite;
 import org.andengine.extension.physics.box2d.PhysicsWorld;

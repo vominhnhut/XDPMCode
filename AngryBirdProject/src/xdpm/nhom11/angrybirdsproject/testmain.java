@@ -26,12 +26,12 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import entities.pack.GameObject;
 import entities.pack.Slingshot;
 
-import xdpm.nhom11.angrybirdspoject.bird.Bird;
-import xdpm.nhom11.angrybirdspoject.bird.BlackBird;
-import xdpm.nhom11.angrybirdspoject.bird.BlueBird;
-import xdpm.nhom11.angrybirdspoject.bird.RedBird;
-import xdpm.nhom11.angrybirdspoject.bird.WhiteBird;
-import xdpm.nhom11.angrybirdspoject.bird.YellowBird;
+import xdpm.nhom11.angrybirdsproject.bird.Bird;
+import xdpm.nhom11.angrybirdsproject.bird.BlackBird;
+import xdpm.nhom11.angrybirdsproject.bird.BlueBird;
+import xdpm.nhom11.angrybirdsproject.bird.RedBird;
+import xdpm.nhom11.angrybirdsproject.bird.WhiteBird;
+import xdpm.nhom11.angrybirdsproject.bird.YellowBird;
 import xdpm.nhom11.angrybirdsproject.physicseditor.PhysicsEditorShapeLibrary;
 
 import xdpm.nhom11.angrybirdsproject.texturepackersupport.TexturePackerHelper;
