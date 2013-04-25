@@ -1,4 +1,4 @@
 eclipse.preferences.version=1
-encoding//src/entity/pack/GameEntity.java=UTF-8
-encoding//src/entity/pack/GameObject.java=UTF-8
-encoding//src/entity/pack/SlingShot.java=UTF-8
+encoding//src/entities/pack/GameEntity.java=UTF-8
+encoding//src/entities/pack/Slingshot.java=UTF-8
+encoding//src/xdpm/nhom11/angrybirdspoject/bird/Bird.java=UTF-8
