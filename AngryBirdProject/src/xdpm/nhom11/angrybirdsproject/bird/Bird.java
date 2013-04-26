@@ -1,12 +1,16 @@
 package xdpm.nhom11.angrybirdsproject.bird;
 
 import org.andengine.entity.scene.Scene;
+import org.andengine.extension.physics.box2d.PhysicsConnector;
 import org.andengine.extension.physics.box2d.PhysicsWorld;
+
+import xdpm.nhom11.angrybirdsproject.physicseditor.PhysicsEditorContent;
 import xdpm.nhom11.angrybirdsproject.physicseditor.PhysicsEditorShapeLibrary;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 
 import entities.pack.GameEntity;
+import entities.pack.Map;
 
 public abstract class Bird extends GameEntity {
 
@@ -14,6 +18,27 @@ public abstract class Bird extends GameEntity {
 			PhysicsWorld physicsworld, FixtureDef fixtureDef) {
 		super(physicseditor, physicsworld, fixtureDef);
 		
+
+	}
+
+	public Bird(FixtureDef fixturedef) {
+		super(fixturedef);
+
+		this.LoadResource();
+		this.LoadBody(PhysicsEditorContent.physicseditorbirdandpig,
+				Map.mPhysicsWorld);
+		this.mPhysicsConnector = new PhysicsConnector(mSprite, mBody);
+		Map.mPhysicsWorld.registerPhysicsConnector(this.mPhysicsConnector);
+
+	}
+
+	public Bird(float pX, float pY, FixtureDef fixturedef) {
+		super(pX, pY, fixturedef);
+		this.LoadResource();
+		this.LoadBody(PhysicsEditorContent.physicseditorbirdandpig,
+				Map.mPhysicsWorld);
+		this.mPhysicsConnector = new PhysicsConnector(mSprite, mBody);
+		Map.mPhysicsWorld.registerPhysicsConnector(this.mPhysicsConnector);
 
 	}
 
@@ -29,7 +54,6 @@ public abstract class Bird extends GameEntity {
 
 	}
 
-	
 	// va chạm
 	@Override
 	public void Collide(float force) {

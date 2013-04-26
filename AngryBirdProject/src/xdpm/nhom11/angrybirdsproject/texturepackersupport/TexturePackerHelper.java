@@ -15,8 +15,8 @@ import android.content.ContextWrapper;
 
 public class TexturePackerHelper {
 	// TiledTexureRegion CHIM
-	public static TiledTextureRegion black_Bird_TiledTexture;
-	public static TiledTextureRegion blue_Bird_TiledTexture;
+	public static TiledTextureRegion BLACK_BIRD_TILEDTEXTURE;
+	public static TiledTextureRegion BLUE_BIRD_TILEDTEXTURE;
 	public static TiledTextureRegion helmet_Pig_TiledTexture;
 	public static TiledTextureRegion king_Big_TiledTexture;
 	public static TiledTextureRegion large_Pig_TiledTexture;
@@ -74,6 +74,28 @@ public class TexturePackerHelper {
 	public static TiledTextureRegion other_1_TiledTexture;
 	public static TiledTextureRegion other_2_TiledTexture;
 	public static TiledTextureRegion other_3_TiledTexture;
+	public static TiledTextureRegion TNT_TiledTexture;
+	public static TiledTextureRegion Wheel_TiledTexture;
+	public static TiledTextureRegion Watermelon_TiledTexture;
+	public static TiledTextureRegion Lemon_TiledTexture;
+	public static TiledTextureRegion Flag_TiledTexture;
+	public static TiledTextureRegion Flag_VN_TiledTexture;
+	public static TiledTextureRegion Diamond_TiledTexture;
+	public static TiledTextureRegion Wheelsmall_TiledTexture;
+	public static TiledTextureRegion Wheelmedium_TiledTexture;
+	public static TiledTextureRegion Berry_TiledTexture;
+	public static TiledTextureRegion Egg_TiledTexture;
+	public static TiledTextureRegion Ballred_TiledTexture;
+	public static TiledTextureRegion Ballblack_TiledTexture;
+	public static TiledTextureRegion Cup_TiledTexture;
+	public static TiledTextureRegion Egggolden_TiledTexture;
+	public static TiledTextureRegion groundbig_TiledTexture;
+	public static TiledTextureRegion groundmedium_TiledTexture;
+	public static TiledTextureRegion groundsmall_TiledTexture;
+	public static TiledTextureRegion groundlong_TiledTexture;
+	public static TiledTextureRegion groundshort_TiledTexture;
+	public static TiledTextureRegion Banana_TiledTexture;
+	public static TiledTextureRegion Chest_TiledTexture;
 
 	public static TexturePackTextureRegionLibrary texturePackLibrary;
 	public static TexturePack texturePack;
@@ -113,9 +135,9 @@ public class TexturePackerHelper {
 			Debug.e(e);
 		}
 
-		black_Bird_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
+		BLACK_BIRD_TILEDTEXTURE = (TiledTextureRegion) getSpriteFromSheet(
 				BirdAndPig.BLACK_BIRD_ID, 7, 1);
-		blue_Bird_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
+		BLUE_BIRD_TILEDTEXTURE = (TiledTextureRegion) getSpriteFromSheet(
 				BirdAndPig.BLUE_BIRD_ID, 4, 1);
 		helmet_Pig_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
 				BirdAndPig.HELMET_PIG_ID, 9, 1);
@@ -211,7 +233,7 @@ public class TexturePackerHelper {
 		RecMedium_ice_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
 				Block.RECMEDIUM_ICE_ID, 4, 1);
 		RecMedium_rock_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
-				Block.RECLONG_ROCK_ID, 4, 1);
+				Block.RECMEDIUM_ROCK_ID, 4, 1);
 		RecMedium_wood_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
 				Block.RECMEDIUM_WOOD_ID, 4, 1);
 		RecShort_ice_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
@@ -256,5 +278,50 @@ public class TexturePackerHelper {
 				Block.OTHER_2_ID, 1, 1);
 		other_3_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
 				Block.OTHER_3_ID, 1, 1);
+		TNT_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
+				Block.TNT_ID, 1, 1);
+		Wheel_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
+				Block.WHEEL_ID, 1, 1);
+		Watermelon_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
+				Block.WATERMELON_ID, 1, 1);
+		Lemon_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
+				Block.LEMON_ID, 1, 1);
+		Flag_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
+				Block.FLAG_ID, 1, 1);
+		Flag_VN_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
+				Block.FLAG_VN_ID, 1, 1);
+		Diamond_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
+				Block.DIAMOND_ID, 1, 1);
+		Wheelsmall_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
+				Block.WHEELSMALL_ID, 1, 1);
+		Wheelmedium_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
+				Block.WHEELMEDIUM_ID, 1, 1);
+		Berry_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
+				Block.BERRY_ID, 1, 1);
+		Egg_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
+				Block.EGG_ID, 1, 1);
+		Ballred_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
+				Block.BALLRED_ID, 1, 1);
+		Ballblack_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
+				Block.BALLBLACK_ID, 1, 1);
+		Cup_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
+				Block.CUP_ID, 1, 1);
+		Egggolden_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
+				Block.EGGGOLDEN_ID, 1, 1);
+		groundbig_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
+				Block.GROUNDBIG_ID, 1, 1);
+		groundmedium_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
+				Block.GROUNDMEDIUM_ID, 1, 1);
+		groundsmall_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
+				Block.GROUNDSMALL_ID, 1, 1);
+		groundlong_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
+				Block.GROUNDLONG_ID, 1, 1);
+		groundshort_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
+				Block.GROUNDSHORT_ID, 1, 1);
+		Banana_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
+				Block.BANANA_ID, 1, 1);
+		Chest_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
+				Block.CHEST_ID, 1, 1);
+
 	}
 }

@@ -4,8 +4,12 @@ import org.andengine.entity.sprite.AnimatedSprite;
 import org.andengine.extension.physics.box2d.PhysicsWorld;
 import org.andengine.opengl.vbo.VertexBufferObjectManager;
 
+import android.util.Log;
+
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
+
+import entities.pack.Map;
 
 import xdpm.nhom11.angrybirdsproject.physicseditor.PhysicsEditorShapeLibrary;
 import xdpm.nhom11.angrybirdsproject.texturepackersupport.TexturePackerHelper;
@@ -19,6 +23,14 @@ public class RedBird extends Bird{
 		super(physicseditor, physicsworld,fixtureDef);
 		// TODO Auto-generated constructor stub
 	}
+	public RedBird(FixtureDef fixturedef)
+	{
+		super(fixturedef);
+	}
+	public RedBird(float pX,float pY,FixtureDef fixturedef)
+	{
+		super(pX,pY,fixturedef);
+	}
 	@Override
 	public void LoadResource() {
 		// TODO Auto-generated method stub
@@ -26,7 +38,8 @@ public class RedBird extends Bird{
 		mPosition = new Vector2(200, 200);
 		mSprite = new AnimatedSprite(mPosition.x, mPosition.y,
 				TexturePackerHelper.red_Bird_TiledTexture,
-				new VertexBufferObjectManager());
+				Map.VBO);
+		Log.e("red bird","aaaa");
 	}
 	public void LoadBody(PhysicsEditorShapeLibrary physicseditor,
 			PhysicsWorld physicsworld) {

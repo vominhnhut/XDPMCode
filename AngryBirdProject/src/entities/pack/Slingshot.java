@@ -12,6 +12,7 @@ import org.andengine.opengl.vbo.VertexBufferObjectManager;
 import org.andengine.util.math.MathUtils;
 
 import xdpm.nhom11.angrybirdsproject.bird.Bird;
+import xdpm.nhom11.angrybirdsproject.physicseditor.PhysicsEditorContent;
 import xdpm.nhom11.angrybirdsproject.physicseditor.PhysicsEditorShapeLibrary;
 import xdpm.nhom11.angrybirdsproject.texturepackersupport.TexturePackerHelper;
 
@@ -52,6 +53,15 @@ public class Slingshot extends GameEntity {
 			PhysicsWorld physicsworld, FixtureDef fixturedef) {
 		super(physicseditor, physicsworld, fixturedef);
 
+	}
+
+	public Slingshot(float pX, float pY) {
+
+		this.mPosition = new Vector2(pX, pY);
+		this.LoadResource();
+		this.LoadBody(PhysicsEditorContent.physicseditorbirdandpig,
+				Map.mPhysicsWorld);
+		CreateSlingshot();
 	}
 
 	// bắn con chim
@@ -281,9 +291,9 @@ public class Slingshot extends GameEntity {
 
 	//
 	@Override
-	public void AttachChild(Scene scn) {
+	public void Attached(Scene scn) {
 		// TODO Auto-generated method stub
-		//super.AttachChild(scn);
+		// super.AttachChild(scn);
 		scn.attachChild(RightBranch);
 		scn.attachChild(String2);
 		scn.attachChild(String1);

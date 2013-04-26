@@ -75,12 +75,12 @@
                 numPolygons="1"
                 >
         <polygon numVertexes="6">
-          <vertex x="-41.0000" y="33.0000" />
-          <vertex x="-3.0000" y="-41.0000" />
-          <vertex x="2.0000" y="-41.0000" />
-          <vertex x="41.0000" y="34.0000" />
-          <vertex x="41.0000" y="41.0000" />
-          <vertex x="-41.0000" y="41.0000" />
+          <vertex x="41.0000" y="-41.0000" />
+          <vertex x="41.0000" y="-34.0000" />
+          <vertex x="2.0000" y="41.0000" />
+          <vertex x="-3.0000" y="41.0000" />
+          <vertex x="-41.0000" y="-33.0000" />
+          <vertex x="-41.0000" y="-41.0000" />
         </polygon>
       </fixture>
     </body>
@@ -97,12 +97,12 @@
                 numPolygons="1"
                 >
         <polygon numVertexes="6">
-          <vertex x="-41.0000" y="33.0000" />
-          <vertex x="-3.0000" y="-41.0000" />
-          <vertex x="2.0000" y="-41.0000" />
-          <vertex x="41.0000" y="34.0000" />
-          <vertex x="41.0000" y="41.0000" />
-          <vertex x="-41.0000" y="41.0000" />
+          <vertex x="41.0000" y="-41.0000" />
+          <vertex x="41.0000" y="-34.0000" />
+          <vertex x="2.0000" y="41.0000" />
+          <vertex x="-3.0000" y="41.0000" />
+          <vertex x="-41.0000" y="-33.0000" />
+          <vertex x="-41.0000" y="-41.0000" />
         </polygon>
       </fixture>
     </body>
@@ -119,12 +119,12 @@
                 numPolygons="1"
                 >
         <polygon numVertexes="6">
-          <vertex x="-41.0000" y="33.0000" />
-          <vertex x="-3.0000" y="-41.0000" />
-          <vertex x="2.0000" y="-41.0000" />
-          <vertex x="41.0000" y="34.0000" />
-          <vertex x="41.0000" y="41.0000" />
-          <vertex x="-41.0000" y="41.0000" />
+          <vertex x="41.0000" y="-41.0000" />
+          <vertex x="41.0000" y="-34.0000" />
+          <vertex x="2.0000" y="41.0000" />
+          <vertex x="-3.0000" y="41.0000" />
+          <vertex x="-41.0000" y="-33.0000" />
+          <vertex x="-41.0000" y="-41.0000" />
         </polygon>
       </fixture>
     </body>
@@ -141,11 +141,11 @@
                 numPolygons="1"
                 >
         <polygon numVertexes="5">
-          <vertex x="-40.0000" y="-40.0000" />
-          <vertex x="-37.0000" y="-40.0000" />
-          <vertex x="40.0000" y="37.0000" />
-          <vertex x="40.0000" y="40.0000" />
+          <vertex x="40.0000" y="-40.0000" />
+          <vertex x="40.0000" y="-37.0000" />
+          <vertex x="-37.0000" y="40.0000" />
           <vertex x="-40.0000" y="40.0000" />
+          <vertex x="-40.0000" y="-40.0000" />
         </polygon>
       </fixture>
     </body>
@@ -162,11 +162,11 @@
                 numPolygons="1"
                 >
         <polygon numVertexes="5">
-          <vertex x="-40.0000" y="-40.0000" />
-          <vertex x="-37.0000" y="-40.0000" />
-          <vertex x="40.0000" y="37.0000" />
-          <vertex x="40.0000" y="40.0000" />
+          <vertex x="40.0000" y="-40.0000" />
+          <vertex x="40.0000" y="-37.0000" />
+          <vertex x="-37.0000" y="40.0000" />
           <vertex x="-40.0000" y="40.0000" />
+          <vertex x="-40.0000" y="-40.0000" />
         </polygon>
       </fixture>
     </body>
@@ -183,11 +183,11 @@
                 numPolygons="1"
                 >
         <polygon numVertexes="5">
-          <vertex x="-40.0000" y="-40.0000" />
-          <vertex x="-37.0000" y="-40.0000" />
-          <vertex x="40.0000" y="37.0000" />
-          <vertex x="40.0000" y="40.0000" />
+          <vertex x="40.0000" y="-40.0000" />
+          <vertex x="40.0000" y="-37.0000" />
+          <vertex x="-37.0000" y="40.0000" />
           <vertex x="-40.0000" y="40.0000" />
+          <vertex x="-40.0000" y="-40.0000" />
         </polygon>
       </fixture>
     </body>

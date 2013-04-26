@@ -10,11 +10,21 @@ import xdpm.nhom11.angrybirdsproject.texturepackersupport.TexturePackerHelper;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 
+import entities.pack.Map;
+
 public class BlueBird extends Bird {
 	public BlueBird(PhysicsEditorShapeLibrary physicseditor,
 			PhysicsWorld physicsworld, FixtureDef fixtureDef) {
 		super(physicseditor, physicsworld,fixtureDef);
 		// TODO Auto-generated constructor stub
+	}
+	public BlueBird(FixtureDef fixturedef)
+	{
+		super(fixturedef);
+	}
+	public BlueBird(float pX,float pY,FixtureDef fixturedef)
+	{
+		super(pX,pY,fixturedef);
 	}
 	@Override
 	public void LoadResource() {
@@ -22,8 +32,8 @@ public class BlueBird extends Bird {
 		super.LoadResource();
 		mPosition = new Vector2(200, 200);
 		mSprite = new AnimatedSprite(mPosition.x, mPosition.y,
-				TexturePackerHelper.blue_Bird_TiledTexture,
-				new VertexBufferObjectManager());
+				TexturePackerHelper.BLUE_BIRD_TILEDTEXTURE,
+				Map.VBO);
 	}
 	public void LoadBody(PhysicsEditorShapeLibrary physicseditor,
 			PhysicsWorld physicsworld) {

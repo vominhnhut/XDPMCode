@@ -10,6 +10,8 @@ import xdpm.nhom11.angrybirdsproject.texturepackersupport.TexturePackerHelper;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 
+import entities.pack.Map;
+
 public class WhiteBird extends Bird {
 	
 	
@@ -18,15 +20,22 @@ public class WhiteBird extends Bird {
 		super(physicseditor, physicsworld,fixtureDef);
 		// TODO Auto-generated constructor stub
 	}
-
+	public WhiteBird(FixtureDef fixturedef)
+	{
+		super(fixturedef);
+	}
+	public WhiteBird(float pX,float pY,FixtureDef fixturedef)
+	{
+		super(pX,pY,fixturedef);
+	}
 	@Override
 	public void LoadResource() {
 		// TODO Auto-generated method stub
 		super.LoadResource();
-		mPosition = new Vector2(200, 200);
+		mPosition = new Vector2(100, 200);
 		mSprite = new AnimatedSprite(mPosition.x, mPosition.y,
 				TexturePackerHelper.white_Bird_TiledTexture,
-				new VertexBufferObjectManager());
+				Map.VBO);
 	}
 
 	public void LoadBody(PhysicsEditorShapeLibrary physicseditor,
