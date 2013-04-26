@@ -150,6 +150,10 @@ public abstract class GameEntity {
 		return this.mPosition;
 	}
 
+	public Vector2 getPositionBody()
+	{
+		return this.mBody.getPosition();
+	}
 	public float getRotation() {
 		return this.mRotation;
 	}
