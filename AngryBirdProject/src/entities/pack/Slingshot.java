@@ -90,12 +90,12 @@ public class Slingshot extends GameEntity {
 	public void CreateSlingshot() {
 
 		// dây 1
-		String2 = new Line(0, 0, 0, 0, 10, mVertexBufferObjectManager);
+		String2 = new Line(0, 0, 0, 0, 10, Map.VBO);
 		String2.setColor(0.4f, 0, 0); // Ä‘áº·t mÃ u cho dÃ¢y
 		String2.setZIndex(-1); // Ä‘áº·t chiá»�u sÃ¢u cho line2
 
 		// dây 2
-		String1 = new Line(0, 0, 0, 0, 10, mVertexBufferObjectManager);
+		String1 = new Line(0, 0, 0, 0, 10, Map.VBO);
 		String1.setColor(0.4f, 0, 0); // Ä‘áº·t mÃ u
 		String1.setZIndex(4); // Ä‘áº·t Ä‘á»™ sÃ¢u cho dÃ¢y nÃ¡
 
@@ -120,13 +120,13 @@ public class Slingshot extends GameEntity {
 
 		this.LeftBranch = new Sprite(100, 100,
 				TexturePackerHelper.slingshot_TiledTexture.getTextureRegion(0),
-				new VertexBufferObjectManager());
+				Map.VBO);
 		this.RightBranch = new Sprite(0, 0,
 				TexturePackerHelper.slingshot_TiledTexture.getTextureRegion(1),
-				new VertexBufferObjectManager());
+				Map.VBO);
 		this.Rubber = new Sprite(0, 0,
 				TexturePackerHelper.sling_TiledTexture.getTextureRegion(0),
-				new VertexBufferObjectManager());
+				Map.VBO);
 
 	}
 
