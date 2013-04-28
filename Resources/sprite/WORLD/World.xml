@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texture version="1" file="World.png" type="bitmap" width="951" height="951" pixelformat="RGBA_8888" minfilter="linear" magfilter="linear" wrapt="clamp" wraps="clamp" premultiplyalpha="false">
+    <!-- Created with TexturePacker http://texturepacker.com -->
+    <!-- $TexturePacker:SmartUpdate:57780551f0402f461caf620f8ba8a112$ -->
+    <textureregion id="0" src="LOCKWORLD.png" x="2" y="2" width="130" height="165" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="130" srcheight="165"/>
+    <textureregion id="1" src="SCOREWORLD.png" x="134" y="2" width="133" height="51" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="133" srcheight="51"/>
+    <textureregion id="2" src="STARWORLD.png" x="269" y="2" width="133" height="51" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="133" srcheight="51"/>
+    <textureregion id="3" src="WORLD1.png" x="404" y="2" width="171" height="469" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="171" srcheight="469"/>
+    <textureregion id="4" src="WORLD2.png" x="577" y="2" width="171" height="469" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="171" srcheight="469"/>
+    <textureregion id="5" src="WORLD3.png" x="750" y="2" width="171" height="469" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="171" srcheight="469"/>
+    <textureregion id="6" src="WORLD4.png" x="2" y="473" width="171" height="469" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="171" srcheight="469"/>
+    <textureregion id="7" src="WORLD5.png" x="175" y="473" width="171" height="469" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="171" srcheight="469"/>
+    <textureregion id="8" src="WORLD6.png" x="348" y="473" width="171" height="469" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="171" srcheight="469"/>
+    <textureregion id="9" src="WORLD7.png" x="521" y="473" width="171" height="469" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="171" srcheight="469"/>
+    <textureregion id="10" src="WORLD8.png" x="694" y="473" width="173" height="476" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="173" srcheight="476"/>
+</texture>
