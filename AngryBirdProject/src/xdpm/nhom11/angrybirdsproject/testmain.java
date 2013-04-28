@@ -23,6 +23,7 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 
+import entities.pack.Camera2D;
 import entities.pack.GameObject;
 import entities.pack.Map;
 import entities.pack.Slingshot;
@@ -40,29 +41,22 @@ import xdpm.nhom11.angrybirdsproject.texturepackersupport.TexturePackerHelper;
 
 public class testmain extends SimpleBaseGameActivity {
 
-	static final int CAMERA_WIDTH = 720;
-	static final int CAMERA_HEIGHT = 480;
-
-	private Camera mCamera;
 	private Scene mMainScene;
 
 	Map mMap;
 	TexturePackerHelper tPH;
 	PhysicsEditorContent peContent;
 
+	public Rectangle staticRect;	
 
-	public Rectangle staticRect;
-
-	
-
+	Camera2D camera2D;
 	@Override
 	public EngineOptions onCreateEngineOptions() {
 		// TODO Auto-generated method stub
 
-		this.mCamera = new Camera(0, 0, CAMERA_WIDTH, CAMERA_HEIGHT);
-		EngineOptions engine = new EngineOptions(true,
-				ScreenOrientation.LANDSCAPE_FIXED, new FillResolutionPolicy(),
-				this.mCamera);
+		camera2D = new Camera2D();
+		EngineOptions engine = new EngineOptions(true, ScreenOrientation.LANDSCAPE_FIXED, 
+												new FillResolutionPolicy(),camera2D.mSmoothCamera);		
 		return engine;
 	}
 
@@ -78,7 +72,7 @@ public class testmain extends SimpleBaseGameActivity {
 
 	}
 
-	int index = 0;
+	int indexmove = 0;
 
 	@Override
 	protected Scene onCreateScene() {
@@ -90,20 +84,15 @@ public class testmain extends SimpleBaseGameActivity {
 		
 		this.mMap.Load();
 		this.mMap.Attached(mMainScene);
+		this.mMap.setcamera(camera2D);
 
 		//
-	
-
+		mMainScene.setOnSceneTouchListener(mMap);		
+		mMainScene.registerUpdateHandler(mMap);
 		
-
-		
-		
-
-		// bird[1].setTransform(new Vector2(200, 500), 0);
-		mMainScene.setOnSceneTouchListener(mMap);
 		return mMainScene;
 	}
 
 	boolean activeblock = false;
-
+	boolean isMove = false;
 }

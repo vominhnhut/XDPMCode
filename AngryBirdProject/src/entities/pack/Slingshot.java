@@ -90,12 +90,12 @@ public class Slingshot extends GameEntity {
 	public void CreateSlingshot() {
 
 		// dây 1
-		String2 = new Line(0, 0, 0, 0, 10, Map.VBO);
+		String2 = new Line(0, 0, 0, 0, 10, mVertexBufferObjectManager);
 		String2.setColor(0.4f, 0, 0); // Ä‘áº·t mÃ u cho dÃ¢y
 		String2.setZIndex(-1); // Ä‘áº·t chiá»�u sÃ¢u cho line2
 
 		// dây 2
-		String1 = new Line(0, 0, 0, 0, 10, Map.VBO);
+		String1 = new Line(0, 0, 0, 0, 10, mVertexBufferObjectManager);
 		String1.setColor(0.4f, 0, 0); // Ä‘áº·t mÃ u
 		String1.setZIndex(4); // Ä‘áº·t Ä‘á»™ sÃ¢u cho dÃ¢y nÃ¡
 
@@ -120,13 +120,13 @@ public class Slingshot extends GameEntity {
 
 		this.LeftBranch = new Sprite(100, 100,
 				TexturePackerHelper.slingshot_TiledTexture.getTextureRegion(0),
-				Map.VBO);
+				new VertexBufferObjectManager());
 		this.RightBranch = new Sprite(0, 0,
 				TexturePackerHelper.slingshot_TiledTexture.getTextureRegion(1),
-				Map.VBO);
+				new VertexBufferObjectManager());
 		this.Rubber = new Sprite(0, 0,
 				TexturePackerHelper.sling_TiledTexture.getTextureRegion(0),
-				Map.VBO);
+				new VertexBufferObjectManager());
 
 	}
 
@@ -176,23 +176,42 @@ public class Slingshot extends GameEntity {
 	}
 
 	boolean isShoot = false;
+	public boolean getisShoot()
+	{
+		return isShoot;
+	}
+	public void setisShoot(boolean is)
+	{
+		isShoot = is;
+	}
 	Vector2 touch = null;
 	int oldPartition = 0;
 
-	public void UpdateTouch(TouchEvent pSceneTouchEvent, boolean isScene) {
+	public void UpdateTouch(TouchEvent pSceneTouchEvent, Camera2D camera) {
 
 		if (birdShooted != null) {
-			// khoáº£ng cÃ¡ch tá»« Ä‘iá»ƒm cháº¡m Ä‘áº¿n da nÃ¡
+			
+			// khoảng cách điểm chạm với cái ná
 			float touchDistance = (new Vector2(Rubber.getX(), Rubber.getY()))
 					.dst(pSceneTouchEvent.getX(), pSceneTouchEvent.getY());
 
-			distance = mPosition.dst(pSceneTouchEvent.getX(),
-					pSceneTouchEvent.getY());
-			// náº¿u khoáº£ng cÃ¡ch tá»« Ä‘iá»ƒm cháº¡m Ä‘áº¿n da nÃ¡ náº±m
-			// trong
-			// vÃ¹ng cÃ³ bÃ¡n kÃ­nh cho phÃ©p thÃ¬ cÃ³ thá»ƒ cháº¡m vÃ o da nÃ¡.
+			distance = mPosition.dst(pSceneTouchEvent.getX(), pSceneTouchEvent.getY());
+			
+			//xét khoảng cách điểm chạm với cái ná
 			if (touchDistance <= MAX_TOUCH_DISTANCE) {
 				isBirdTouch = true;
+				
+				//nếu đang chạm chim ko cho phép scroll và zoom
+				camera.mScrollDetector.setEnabled(false);
+				camera.mPinchZoomDetector.setEnabled(false);
+			}
+			else
+			{
+				isBirdTouch = false;
+				
+				//nếu không chạm cho phép scroll và zoom				
+				camera.mScrollDetector.setEnabled(true);
+				camera.mPinchZoomDetector.setEnabled(true);
 			}
 
 			if (isBirdTouch) {
@@ -209,9 +228,7 @@ public class Slingshot extends GameEntity {
 							+ pSceneTouchEvent.getY();
 				}
 
-				int eventaction = pSceneTouchEvent.getAction(); // láº¥y sá»±
-																// kiá»‡n
-																// touch
+				int eventaction = pSceneTouchEvent.getAction(); 
 
 				boolean flag = true;
 				switch (eventaction) {
@@ -244,9 +261,8 @@ public class Slingshot extends GameEntity {
 						birdShooted.setTransform(mPosition, 0);
 						isShoot = false;
 					} else {
-						isShoot = true;
 						this.ShootBird();
-
+						isShoot = true;
 					}
 					String1.setPosition(mPosition.x, mPosition.y,
 							mPosition.x - 22, mPosition.y);

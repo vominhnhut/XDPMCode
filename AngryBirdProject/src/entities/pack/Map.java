@@ -3,6 +3,7 @@ package entities.pack;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.andengine.engine.handler.IUpdateHandler;
 import org.andengine.entity.primitive.Rectangle;
 import org.andengine.entity.scene.IOnSceneTouchListener;
 import org.andengine.entity.scene.Scene;
@@ -27,7 +28,7 @@ import xdpm.nhom11.angrybirdsproject.bird.WhiteBird;
 import xdpm.nhom11.angrybirdsproject.bird.YellowBird;
 import xdpm.nhom11.angrybirdsproject.physicseditor.PhysicsEditorContent;
 
-public class Map implements IOnSceneTouchListener {
+public class Map implements IOnSceneTouchListener, IUpdateHandler {
 
 	public static PhysicsWorld mPhysicsWorld;
 	public static VertexBufferObjectManager VBO;
@@ -36,11 +37,13 @@ public class Map implements IOnSceneTouchListener {
 
 	// danh sách chim
 	ArrayList<Bird> ListBird = new ArrayList<Bird>();
+	
 	// danh sách vật cản
 	ArrayList<GameObject> ListObject = new ArrayList<GameObject>();
+	
 	// cây ná
 	Slingshot mSlingshot;
-
+	
 	// mặt đất tạm
 	Rectangle staticRect;
 
@@ -49,7 +52,6 @@ public class Map implements IOnSceneTouchListener {
 
 		Map.mPhysicsWorld = new PhysicsWorld(new Vector2(0, -10), false);
 		fx=PhysicsFactory.createFixtureDef(50, 0.2f, 1f);
-
 	}
 
 	public void Load() {
@@ -87,9 +89,8 @@ public class Map implements IOnSceneTouchListener {
 		staticRect.setAlpha(1);
 
 		Body staticBody;
-		staticBody = PhysicsFactory.createBoxBody(Map.mPhysicsWorld,
-				staticRect, BodyType.StaticBody,
-				PhysicsFactory.createFixtureDef(0.2f, 0.2f, 1f));
+		staticBody = PhysicsFactory.createBoxBody(Map.mPhysicsWorld,staticRect, BodyType.StaticBody,
+													PhysicsFactory.createFixtureDef(0.2f, 0.2f, 1f));
 
 		Map.mPhysicsWorld.registerPhysicsConnector(new PhysicsConnector(
 				staticRect, staticBody));
@@ -157,16 +158,8 @@ public class Map implements IOnSceneTouchListener {
 		}
 		mSlingshot.Attached(scene);
 		scene.attachChild(staticRect);
-	}
-
-	boolean activeblock=false;
-	int index=0;
-	@Override
-	public boolean onSceneTouchEvent(Scene pScene, TouchEvent pSceneTouchEvent) {
-		// TODO Auto-generated method stub
-		mSlingshot.ReadyShoot(ListBird.get(index));
-		mSlingshot.UpdateTouch(pSceneTouchEvent, false);
-
+		
+		//set active vật liệu
 		if (activeblock == false) {
 
 			for(GameObject ob: ListObject)
@@ -174,12 +167,91 @@ public class Map implements IOnSceneTouchListener {
 			ob.mBody.setType(BodyType.DynamicBody);
 			}
 			activeblock=true;
-		}
-		index++;
-		if(index>=ListBird.size())
-			index=0;
-		return false;
-	
+		}	
+		
+		mSlingshot.ReadyShoot(ListBird.get(index));
 	}
 
+	boolean activeblock=false;
+	int index=0;
+	
+	//camera
+	Camera2D camera2D;
+	public Camera2D getcamera()
+	{
+		return camera2D;
+	}
+	public void setcamera(Camera2D camera)
+	{
+		camera2D = camera;
+	}
+	
+	@Override
+	public boolean onSceneTouchEvent(Scene pScene, TouchEvent pSceneTouchEvent) {
+		// TODO Auto-generated method stub
+		
+		//gán indexmove con chim đang ở trên ná và đưa camera về lại vị trí ban đầu
+		indexmove = index;			
+		//camera2D.mSmoothCamera.set(0,0,800,480);
+		
+		//đảm bảo lúc này con chim ko bay
+		isMove = false;
+		
+		//nếu con chim ko bay cho phép scroll và zoom
+		if(!isMove)
+		{
+			camera2D.mPinchZoomDetector.onSceneTouchEvent(pScene, pSceneTouchEvent);
+			if (camera2D.mPinchZoomDetector.isZooming()) 
+			{
+				camera2D.mScrollDetector.setEnabled(false);
+			} else 
+			{
+				camera2D.mScrollDetector.onSceneTouchEvent(pScene, pSceneTouchEvent);
+			}					
+		}
+		
+		mSlingshot.UpdateTouch(pSceneTouchEvent, camera2D);		
+		
+		return false;
+	}
+
+	boolean isMove = false;		//cho biết chim đang di chuyển
+	boolean iszoom1= false;
+	int indexmove;				//index con chim đang di chuyển
+	
+	@Override
+	public void onUpdate(float pSecondsElapsed) {
+		// TODO Auto-generated method stub
+		if(mSlingshot.isShoot)
+		{		
+			//cho biết con chim đã bay
+			isMove = true;
+			mSlingshot.isShoot = false;			
+				
+			index++;
+			if(index>=ListBird.size())
+				index=0;	
+		}
+		
+		if(isMove)
+		{
+			//đặt con chim tiếp theo vào vị trí bắn
+			if(	mSlingshot.birdShooted == null &&
+				ListBird.get(indexmove).getSprite().getY() + ListBird.get(indexmove).getSprite().getHeight()*2 > mSlingshot.mPosition.y)
+			{
+				mSlingshot.ReadyShoot(ListBird.get(index));
+			}
+			
+			//di chuyển camera theo con chim
+			camera2D.FollowBird(isMove, iszoom1, ListBird.get(indexmove).getBody().getLinearVelocity());			
+		}
+	}
+
+	@Override
+	public void reset() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 }
