@@ -5,7 +5,7 @@ import org.andengine.extension.physics.box2d.PhysicsWorld;
 import org.andengine.opengl.vbo.VertexBufferObjectManager;
 
 import xdpm.nhom11.angrybirdsproject.physicseditor.PhysicsEditorShapeLibrary;
-import xdpm.nhom11.angrybirdsproject.texturepackersupport.TexturePackerHelper;
+import xdpm.nhom11.angrybirdsproject.resourcemanager.TexturePackerHelper;
 
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
@@ -32,7 +32,7 @@ public class YellowBird extends Bird {
 		super.LoadResource();
 		mPosition = new Vector2(200, 200);
 		mSprite = new AnimatedSprite(mPosition.x, mPosition.y,
-				TexturePackerHelper.yellow_Bird_TiledTexture,
+				TexturePackerHelper.YELLOW_BIRD_TILEDTEXTURE,
 				Map.VBO);
 	}
 

@@ -14,7 +14,7 @@ import org.andengine.util.math.MathUtils;
 import xdpm.nhom11.angrybirdsproject.bird.Bird;
 import xdpm.nhom11.angrybirdsproject.physicseditor.PhysicsEditorContent;
 import xdpm.nhom11.angrybirdsproject.physicseditor.PhysicsEditorShapeLibrary;
-import xdpm.nhom11.angrybirdsproject.texturepackersupport.TexturePackerHelper;
+import xdpm.nhom11.angrybirdsproject.resourcemanager.TexturePackerHelper;
 
 import android.util.Log;
 
@@ -90,12 +90,12 @@ public class Slingshot extends GameEntity {
 	public void CreateSlingshot() {
 
 		// dây 1
-		String2 = new Line(0, 0, 0, 0, 10, mVertexBufferObjectManager);
+		String2 = new Line(0, 0, 0, 0, 10,Map.VBO);
 		String2.setColor(0.4f, 0, 0); // Ä‘áº·t mÃ u cho dÃ¢y
 		String2.setZIndex(-1); // Ä‘áº·t chiá»�u sÃ¢u cho line2
 
 		// dây 2
-		String1 = new Line(0, 0, 0, 0, 10, mVertexBufferObjectManager);
+		String1 = new Line(0, 0, 0, 0, 10,Map.VBO);
 		String1.setColor(0.4f, 0, 0); // Ä‘áº·t mÃ u
 		String1.setZIndex(4); // Ä‘áº·t Ä‘á»™ sÃ¢u cho dÃ¢y nÃ¡
 
@@ -119,14 +119,14 @@ public class Slingshot extends GameEntity {
 		super.LoadResource();
 
 		this.LeftBranch = new Sprite(100, 100,
-				TexturePackerHelper.slingshot_TiledTexture.getTextureRegion(0),
-				new VertexBufferObjectManager());
+				TexturePackerHelper.SLINGSHOT_TILEDTEXTURE.getTextureRegion(0),
+				Map.VBO);
 		this.RightBranch = new Sprite(0, 0,
-				TexturePackerHelper.slingshot_TiledTexture.getTextureRegion(1),
-				new VertexBufferObjectManager());
+				TexturePackerHelper.SLINGSHOT_TILEDTEXTURE.getTextureRegion(1),
+				Map.VBO);
 		this.Rubber = new Sprite(0, 0,
-				TexturePackerHelper.sling_TiledTexture.getTextureRegion(0),
-				new VertexBufferObjectManager());
+				TexturePackerHelper.SLING_TILEDTEXTURE.getTextureRegion(0),
+				Map.VBO);
 
 	}
 
@@ -202,16 +202,16 @@ public class Slingshot extends GameEntity {
 				isBirdTouch = true;
 				
 				//nếu đang chạm chim ko cho phép scroll và zoom
-				camera.mScrollDetector.setEnabled(false);
-				camera.mPinchZoomDetector.setEnabled(false);
+			//	camera.mScrollDetector.setEnabled(false);
+			//	camera.mPinchZoomDetector.setEnabled(false);
 			}
 			else
 			{
 				isBirdTouch = false;
 				
 				//nếu không chạm cho phép scroll và zoom				
-				camera.mScrollDetector.setEnabled(true);
-				camera.mPinchZoomDetector.setEnabled(true);
+				//camera.mScrollDetector.setEnabled(true);
+				//camera.mPinchZoomDetector.setEnabled(true);
 			}
 
 			if (isBirdTouch) {

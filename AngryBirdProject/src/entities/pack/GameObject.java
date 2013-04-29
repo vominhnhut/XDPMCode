@@ -15,7 +15,7 @@ import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 
 import xdpm.nhom11.angrybirdsproject.physicseditor.PhysicsEditorContent;
 import xdpm.nhom11.angrybirdsproject.physicseditor.PhysicsEditorShapeLibrary;
-import xdpm.nhom11.angrybirdsproject.texturepackersupport.TexturePackerHelper;
+import xdpm.nhom11.angrybirdsproject.resourcemanager.TexturePackerHelper;
 
 public class GameObject  extends GameEntity {
 
