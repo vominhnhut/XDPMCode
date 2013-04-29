@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texture version="1" file="Score.png" type="bitmap" width="340" height="340" pixelformat="RGBA_8888" minfilter="linear" magfilter="linear" wrapt="clamp" wraps="clamp" premultiplyalpha="false">
+    <!-- Created with TexturePacker http://texturepacker.com -->
+    <!-- $TexturePacker:SmartUpdate:82a77bd0e378d6584443c83055308d86$ -->
+    <textureregion id="0" src="SCORE_10K_BLACK.png" x="161" y="159" width="157" height="56" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="157" srcheight="56"/>
+    <textureregion id="1" src="SCORE_10K_BLUE.png" x="2" y="159" width="157" height="56" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="157" srcheight="56"/>
+    <textureregion id="2" src="SCORE_10K_GREEN.png" x="2" y="217" width="157" height="56" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="157" srcheight="56"/>
+    <textureregion id="3" src="SCORE_10K_ORANGE.png" x="161" y="217" width="157" height="56" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="157" srcheight="56"/>
+    <textureregion id="4" src="SCORE_10K_PINK.png" x="161" y="275" width="159" height="63" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="159" srcheight="63"/>
+    <textureregion id="5" src="SCORE_10K_RED.png" x="2" y="275" width="157" height="56" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="157" srcheight="56"/>
+    <textureregion id="6" src="SCORE_10K_WHITE.png" x="161" y="101" width="157" height="56" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="157" srcheight="56"/>
+    <textureregion id="7" src="SCORE_10K_YELLOW.png" x="2" y="101" width="157" height="56" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="157" srcheight="56"/>
+    <textureregion id="8" src="SCORE_3K_PINK.png" x="2" y="44" width="91" height="41" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="91" srcheight="41"/>
+    <textureregion id="9" src="SCORE_3K_PURPLE.png" x="186" y="2" width="90" height="40" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="90" srcheight="40"/>
+    <textureregion id="10" src="SCORE_3K_RED.png" x="94" y="2" width="90" height="40" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="90" srcheight="40"/>
+    <textureregion id="11" src="SCORE_3K_YELLOW.png" x="2" y="2" width="90" height="40" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="90" srcheight="40"/>
+    <textureregion id="12" src="SCORE_5K_GREEN.png" x="95" y="44" width="124" height="55" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="124" srcheight="55"/>
+</texture>

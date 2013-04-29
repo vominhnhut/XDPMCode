@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texture version="1" file="Button.png" type="bitmap" width="758" height="758" pixelformat="RGBA_8888" minfilter="linear" magfilter="linear" wrapt="clamp" wraps="clamp" premultiplyalpha="false">
+    <!-- Created with TexturePacker http://texturepacker.com -->
+    <!-- $TexturePacker:SmartUpdate:5a6e969c1757ed0e9c8442deeec38aa4$ -->
+    <textureregion id="0" src="ABOUT_BTN.png" x="232" y="2" width="67" height="72" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="67" srcheight="72"/>
+    <textureregion id="1" src="BACKTOEPISODE_BTN.png" x="332" y="283" width="110" height="116" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="110" srcheight="116"/>
+    <textureregion id="2" src="BACK_BTN.png" x="2" y="170" width="97" height="97" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="97" srcheight="97"/>
+    <textureregion id="3" src="CANCEL_BTN.png" x="610" y="401" width="135" height="137" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="135" srcheight="137"/>
+    <textureregion id="4" src="CHOOSELEVEL_BTN_strip6.png" x="2" y="401" width="606" height="130" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="606" srcheight="130"/>
+    <textureregion id="5" src="EMPTY_BTN.png" x="220" y="283" width="110" height="115" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="110" srcheight="115"/>
+    <textureregion id="6" src="GACHNOI.png" x="2" y="2" width="25" height="24" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="25" srcheight="24"/>
+    <textureregion id="7" src="LEFT_BTN.png" x="101" y="170" width="102" height="104" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="102" srcheight="104"/>
+    <textureregion id="8" src="LOCKLEVEL.png" x="309" y="170" width="105" height="110" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="105" srcheight="110"/>
+    <textureregion id="9" src="NEXTINGAME_BTN.png" x="522" y="170" width="104" height="111" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="104" srcheight="111"/>
+    <textureregion id="10" src="NEXTINMENU_BTN.png" x="2" y="283" width="104" height="111" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="104" srcheight="111"/>
+    <textureregion id="11" src="NUMBER_strip10.png" x="2" y="83" width="500" height="80" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="500" srcheight="80"/>
+    <textureregion id="12" src="OK_BTN.png" x="2" y="540" width="137" height="137" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="137" srcheight="137"/>
+    <textureregion id="13" src="OPTIONINSTATIC_BTN.png" x="108" y="283" width="110" height="115" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="110" srcheight="115"/>
+    <textureregion id="14" src="OPTIONSKIN_BTN.png" x="29" y="2" width="65" height="65" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="65" srcheight="65"/>
+    <textureregion id="15" src="PAUSE_BTN.png" x="628" y="170" width="104" height="111" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="104" srcheight="111"/>
+    <textureregion id="16" src="PLAY_BTN.png" x="141" y="540" width="325" height="216" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="325" srcheight="216"/>
+    <textureregion id="17" src="REPLAYINGAME_BTN.png" x="416" y="170" width="104" height="111" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="104" srcheight="111"/>
+    <textureregion id="18" src="REPLAYINMENU_BTN.png" x="444" y="283" width="110" height="116" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="110" srcheight="116"/>
+    <textureregion id="19" src="RESUME_BTN.png" x="585" y="83" width="80" height="85" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="80" srcheight="85"/>
+    <textureregion id="20" src="RIGHT_BTN.png" x="205" y="170" width="102" height="105" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="102" srcheight="105"/>
+    <textureregion id="21" src="TUTORIAL_BTN.png" x="504" y="83" width="79" height="85" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="79" srcheight="85"/>
+    <textureregion id="22" src="VOLUMEINMENU_BTN.png" x="301" y="2" width="164" height="79" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="164" srcheight="79"/>
+    <textureregion id="23" src="VOLUMEINOPTION_BTN.png" x="96" y="2" width="134" height="72" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="134" srcheight="72"/>
+</texture>
