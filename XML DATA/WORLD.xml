@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LISTWORLD> 
+  <!-- Một world-->
+  <WORLD id=""> 
+    <!-- Danh sách các chapter-->
+    <LISTCHAPTER> 
+      <!-- Một chapter. một chapter chứa khoảng 21 cái level-->
+      <CHAPTER id=""> 
+        <!-- Danh sách level-->
+        <LISTLEVEL>
+          <LEVEL id="" highscore="" numstar="" width="" height="" bgcolor="">
+            <BACKGROUND id="">
+            <SLINGSHOT x="145" y="103" />
+            <BIRDLIST>
+              <BIRD id="RED BIRD" x="545" y="156" />
+              <BIRD id="WHILE BIRD" x="470" y="173" />
+              <BIRD id="BLUE BIRD" x="487" y="115" />
+              <BIRD id="WHILE BIRD" x="545" y="267" />
+            </BIRDLIST>
+            <BLOCKLIST>
+              <BLOCK id="RECLONG_ROCK" rotation="-46" x="420" y="96" />
+              <BLOCK id="RECLONG_ROCK" rotation="50" x="269" y="90" />
+            </BLOCKLIST>
+          </LEVEL>
+        </LISTLEVEL>
+      </CHAPTER>
+    </LISTCHAPTER>
+  </WORLD>
+</LISTWORLD>
