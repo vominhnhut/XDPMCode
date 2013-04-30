@@ -80,14 +80,10 @@ public abstract class GameEntity {
 		this.mPhysicsConnector = new PhysicsConnector(mSprite, mBody);
 	}
 
-	public void LoadResource() {
+	public abstract void LoadResource() ;
 
-	}
-
-	public void LoadBody(PhysicsEditorShapeLibrary physicseditor,
-			PhysicsWorld physicsworld) {
-
-	}
+	public abstract void LoadBody(PhysicsEditorShapeLibrary physicseditor,
+			PhysicsWorld physicsworld) ;
 
 	// va chạm
 	public void Collide(float force) {

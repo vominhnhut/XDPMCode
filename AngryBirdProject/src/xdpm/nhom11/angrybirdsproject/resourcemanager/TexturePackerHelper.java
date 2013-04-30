@@ -160,7 +160,7 @@ public class TexturePackerHelper {
 			ContextWrapper contextWrapper) {
 		loadTiledTextureBlocks(texturemanager, contextWrapper);
 		loadTiledTextureSprites(texturemanager, contextWrapper);
-		loadTiledTextureBackGrounds(texturemanager, contextWrapper);
+		//loadTiledTextureBackGrounds(texturemanager, contextWrapper);
 		loadTiledTextureScore(texturemanager, contextWrapper);
 		loadTiledTextureWorld(texturemanager, contextWrapper);
 		loadTiledTextureButton(texturemanager, contextWrapper);

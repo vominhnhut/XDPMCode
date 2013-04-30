@@ -31,17 +31,17 @@ public class WhiteBird extends Bird {
 	@Override
 	public void LoadResource() {
 		// TODO Auto-generated method stub
-		super.LoadResource();
-		mPosition = new Vector2(100, 200);
+	
 		mSprite = new AnimatedSprite(mPosition.x, mPosition.y,
 				TexturePackerHelper.WHITE_BIRD_TILEDTEXTURE,
 				Map.VBO);
 	}
 
+	@Override
 	public void LoadBody(PhysicsEditorShapeLibrary physicseditor,
 			PhysicsWorld physicsworld) {
 		// TODO Auto-generated method stub
-		super.LoadBody(physicseditor, physicsworld);
+
 		this.mBody = physicseditor.createBody("WHITE BIRD", this.mSprite,
 				physicsworld, this.mFixture);
 	}

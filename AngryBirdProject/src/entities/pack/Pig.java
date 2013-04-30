@@ -1,6 +1,9 @@
 package entities.pack;
 
 import org.andengine.entity.sprite.AnimatedSprite;
+import org.andengine.extension.physics.box2d.PhysicsWorld;
+
+import xdpm.nhom11.angrybirdsproject.physicseditor.PhysicsEditorShapeLibrary;
 
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
@@ -21,6 +24,17 @@ public class Pig extends GameEntity {
 	public void Collide(float force) {
 		// TODO Auto-generated method stub
 		super.Collide(force);
+	}
+	@Override
+	public void LoadResource() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void LoadBody(PhysicsEditorShapeLibrary physicseditor,
+			PhysicsWorld physicsworld) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

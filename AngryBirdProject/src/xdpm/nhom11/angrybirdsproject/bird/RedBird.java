@@ -33,8 +33,7 @@ public class RedBird extends Bird {
 	@Override
 	public void LoadResource() {
 		// TODO Auto-generated method stub
-		super.LoadResource();
-		mPosition = new Vector2(200, 200);
+
 		mSprite = new AnimatedSprite(mPosition.x, mPosition.y,
 				TexturePackerHelper.RED_BIRD_TILEDTEXTURE, Map.VBO);
 		
@@ -43,10 +42,10 @@ public class RedBird extends Bird {
 
 	}
 
+	@Override
 	public void LoadBody(PhysicsEditorShapeLibrary physicseditor,
 			PhysicsWorld physicsworld) {
-		// TODO Auto-generated method stub
-		super.LoadBody(physicseditor, physicsworld);
+
 		this.mBody = physicseditor.createBody("RED BIRD", this.mSprite,
 				physicsworld, this.mFixture);
 	}

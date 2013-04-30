@@ -90,12 +90,12 @@ public class Slingshot extends GameEntity {
 	public void CreateSlingshot() {
 
 		// dây 1
-		String2 = new Line(0, 0, 0, 0, 10,Map.VBO);
+		String2 = new Line(0, 0, 0, 0, 10, Map.VBO);
 		String2.setColor(0.4f, 0, 0); // Ä‘áº·t mÃ u cho dÃ¢y
 		String2.setZIndex(-1); // Ä‘áº·t chiá»�u sÃ¢u cho line2
 
 		// dây 2
-		String1 = new Line(0, 0, 0, 0, 10,Map.VBO);
+		String1 = new Line(0, 0, 0, 0, 10, Map.VBO);
 		String1.setColor(0.4f, 0, 0); // Ä‘áº·t mÃ u
 		String1.setZIndex(4); // Ä‘áº·t Ä‘á»™ sÃ¢u cho dÃ¢y nÃ¡
 
@@ -116,7 +116,6 @@ public class Slingshot extends GameEntity {
 	@Override
 	public void LoadResource() {
 		// TODO Auto-generated method stub
-		super.LoadResource();
 
 		this.LeftBranch = new Sprite(100, 100,
 				TexturePackerHelper.SLINGSHOT_TILEDTEXTURE.getTextureRegion(0),
@@ -176,42 +175,42 @@ public class Slingshot extends GameEntity {
 	}
 
 	boolean isShoot = false;
-	public boolean getisShoot()
-	{
+
+	public boolean getisShoot() {
 		return isShoot;
 	}
-	public void setisShoot(boolean is)
-	{
+
+	public void setisShoot(boolean is) {
 		isShoot = is;
 	}
+
 	Vector2 touch = null;
 	int oldPartition = 0;
 
 	public void UpdateTouch(TouchEvent pSceneTouchEvent, Camera2D camera) {
 
 		if (birdShooted != null) {
-			
+
 			// khoảng cách điểm chạm với cái ná
 			float touchDistance = (new Vector2(Rubber.getX(), Rubber.getY()))
 					.dst(pSceneTouchEvent.getX(), pSceneTouchEvent.getY());
 
-			distance = mPosition.dst(pSceneTouchEvent.getX(), pSceneTouchEvent.getY());
-			
-			//xét khoảng cách điểm chạm với cái ná
+			distance = mPosition.dst(pSceneTouchEvent.getX(),
+					pSceneTouchEvent.getY());
+
+			// xét khoảng cách điểm chạm với cái ná
 			if (touchDistance <= MAX_TOUCH_DISTANCE) {
 				isBirdTouch = true;
-				
-				//nếu đang chạm chim ko cho phép scroll và zoom
-			//	camera.mScrollDetector.setEnabled(false);
-			//	camera.mPinchZoomDetector.setEnabled(false);
-			}
-			else
-			{
+
+				// nếu đang chạm chim ko cho phép scroll và zoom
+				// camera.mScrollDetector.setEnabled(false);
+				// camera.mPinchZoomDetector.setEnabled(false);
+			} else {
 				isBirdTouch = false;
-				
-				//nếu không chạm cho phép scroll và zoom				
-				//camera.mScrollDetector.setEnabled(true);
-				//camera.mPinchZoomDetector.setEnabled(true);
+
+				// nếu không chạm cho phép scroll và zoom
+				// camera.mScrollDetector.setEnabled(true);
+				// camera.mPinchZoomDetector.setEnabled(true);
 			}
 
 			if (isBirdTouch) {
@@ -228,7 +227,7 @@ public class Slingshot extends GameEntity {
 							+ pSceneTouchEvent.getY();
 				}
 
-				int eventaction = pSceneTouchEvent.getAction(); 
+				int eventaction = pSceneTouchEvent.getAction();
 
 				boolean flag = true;
 				switch (eventaction) {
@@ -340,6 +339,13 @@ public class Slingshot extends GameEntity {
 				/ PhysicsConstants.PIXEL_TO_METER_RATIO_DEFAULT);
 		dynamicbodyline.setTransform(v2, angle);
 		Vector2Pool.recycle(v2);
+	}
+
+	@Override
+	public void LoadBody(PhysicsEditorShapeLibrary physicseditor,
+			PhysicsWorld physicsworld) {
+		// TODO Auto-generated method stub
+
 	}
 
 }
