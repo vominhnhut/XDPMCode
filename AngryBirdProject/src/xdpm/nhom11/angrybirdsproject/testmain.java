@@ -70,7 +70,7 @@ public class testmain extends SimpleBaseGameActivity {
 	protected void onCreateResources() {
 		// TODO Auto-generated method stub
 		mMap = new Map(this, getVertexBufferObjectManager());
-		peContent = new PhysicsEditorContent(this);
+	
 		tPH = new TexturePackerHelper(this.getTextureManager(), this);
 
 	}

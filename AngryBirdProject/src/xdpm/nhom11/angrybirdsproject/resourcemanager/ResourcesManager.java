@@ -2,10 +2,18 @@ package xdpm.nhom11.angrybirdsproject.resourcemanager;
 
 import org.andengine.engine.Engine;
 import org.andengine.engine.camera.Camera;
+import org.andengine.opengl.font.Font;
+import org.andengine.opengl.font.FontFactory;
+import org.andengine.opengl.texture.ITexture;
+import org.andengine.opengl.texture.TextureOptions;
+import org.andengine.opengl.texture.atlas.bitmap.BitmapTextureAtlas;
 import org.andengine.opengl.vbo.VertexBufferObjectManager;
 import org.andengine.ui.activity.SimpleBaseGameActivity;
 
+import android.graphics.Color;
+
 import xdpm.nhom11.angrybirdsproject.GameActivity;
+import xdpm.nhom11.angrybirdsproject.physicseditor.PhysicsEditorContent;
 
 public class ResourcesManager {
 
@@ -16,6 +24,8 @@ public class ResourcesManager {
 	public GameActivity activity;
 	public Camera camera;
 	public VertexBufferObjectManager vbom;
+	public Font font;
+	public PhysicsEditorContent physicseditorcontent;
 
 	// ---------------------------------------------
 	// TEXTURES & TEXTURE REGIONS
@@ -27,8 +37,12 @@ public class ResourcesManager {
 
 	public void loadResource() {
 		texturepackerhelper = new TexturePackerHelper(
-				activity.getTextureManager(),activity);
+				activity.getTextureManager(), activity);
 
+	}
+
+	public void loadBodyResource() {
+		physicseditorcontent = new PhysicsEditorContent(activity);
 	}
 
 	public void loadMenuResources() {
@@ -64,6 +78,17 @@ public class ResourcesManager {
 
 	public void loadSplashScreen() {
 
+	}
+
+	public void loadGameFont() {
+		FontFactory.setAssetBasePath("font/");
+		final ITexture mainFontTexture = new BitmapTextureAtlas(
+				activity.getTextureManager(), 256, 256,
+				TextureOptions.BILINEAR_PREMULTIPLYALPHA);
+		font = FontFactory.createStrokeFromAsset(activity.getFontManager(),
+				mainFontTexture, activity.getAssets(), "angrybirdsfont.ttf",
+				100, true, Color.WHITE, 2, Color.BLACK);
+		font.load();
 	}
 
 	public void unloadSplashScreen() {

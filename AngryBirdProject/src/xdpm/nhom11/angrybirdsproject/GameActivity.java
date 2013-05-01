@@ -9,12 +9,20 @@ import org.andengine.engine.options.EngineOptions;
 import org.andengine.engine.options.ScreenOrientation;
 import org.andengine.engine.options.WakeLockOptions;
 import org.andengine.engine.options.resolutionpolicy.RatioResolutionPolicy;
+import org.andengine.entity.IEntity;
 import org.andengine.entity.scene.Scene;
 import org.andengine.entity.scene.background.Background;
 import org.andengine.entity.sprite.Sprite;
+import org.andengine.entity.text.Text;
+import org.andengine.opengl.font.Font;
+import org.andengine.opengl.font.FontFactory;
 import org.andengine.ui.activity.BaseGameActivity;
 import org.andengine.util.adt.color.Color;
+import org.andengine.util.level.EntityLoader;
+import org.andengine.util.level.simple.SimpleLevelEntityLoaderData;
+import org.andengine.util.level.simple.SimpleLevelLoader;
 import org.andengine.util.system.CPUUsage;
+import org.xml.sax.Attributes;
 
 import xdpm.nhom11.angrybirdsproject.resourcemanager.ResourcesManager;
 import xdpm.nhom11.angrybirdsproject.scene.SceneManager;
@@ -51,6 +59,7 @@ public class GameActivity extends BaseGameActivity {
 		ResourcesManager.prepareManager(getEngine(), this, camera,
 				getVertexBufferObjectManager());
 		ResourcesManager.getInstance().loadResource();
+		ResourcesManager.getInstance().loadGameFont();
 		pOnCreateResourcesCallback.onCreateResourcesFinished();
 
 	}
@@ -68,7 +77,8 @@ public class GameActivity extends BaseGameActivity {
 				getVertexBufferObjectManager()));
 		SceneManager.getInstance().setCallback(pOnCreateSceneCallback);		// Sprite a=new GameActivity(
 		// TODO Auto-generated method stub
-		SceneManager.getInstance().createMenuScene();
+		SceneManager.getInstance().createEffectTestScene();
+	
 		
 
 	}

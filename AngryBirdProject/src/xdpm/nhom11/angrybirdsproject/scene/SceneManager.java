@@ -12,6 +12,8 @@ public class SceneManager {
 	OnCreateSceneCallback onCreateSceneCallback;
 	MenuScene menuScene;
 	WorldScene worldScene;
+	GameScene gameScene;
+	EffectTestScene eScene;
 
 	// ---------------------------------------------
 	// VARIABLES
@@ -26,7 +28,7 @@ public class SceneManager {
 	private Engine engine = ResourcesManager.getInstance().engine;
 
 	public enum SceneType {
-		SCENE_SPLASH, SCENE_MENU, SCENE_GAME, SCENE_LOADING, SCENE_WORLD
+		SCENE_SPLASH, SCENE_MENU, SCENE_GAME, SCENE_LOADING, SCENE_WORLD, SCENE_LEVEL
 	}
 
 	// ---------------------------------------------
@@ -54,6 +56,9 @@ public class SceneManager {
 		// case SCENE_LOADING:
 		// setScene(loadingScene);
 		// break;
+		case SCENE_GAME:
+			setScene(gameScene);
+			break;
 		default:
 			break;
 		}
@@ -71,16 +76,16 @@ public class SceneManager {
 		return currentScene;
 	}
 
-	public void setCallback(OnCreateSceneCallback onCallback)
-	{
-		this.onCreateSceneCallback=onCallback;
+	public void setCallback(OnCreateSceneCallback onCallback) {
+		this.onCreateSceneCallback = onCallback;
 	}
+
 	public void createMenuScene() {
 
 		menuScene = new MenuScene();
 		currentScene = menuScene;
 		this.onCreateSceneCallback.onCreateSceneFinished(menuScene);
-		
+
 	}
 
 	public void CreateWorldScene() {
@@ -88,6 +93,21 @@ public class SceneManager {
 		worldScene = new WorldScene();
 		currentScene = worldScene;
 		this.onCreateSceneCallback.onCreateSceneFinished(worldScene);
+	}
+
+	public void CreateGameScene() {
+
+		gameScene = new GameScene();
+		currentScene = gameScene;
+		this.onCreateSceneCallback.onCreateSceneFinished(gameScene);
+	}
+
+	public void createEffectTestScene() {
+		// TODO Auto-generated method stub
+		eScene = new EffectTestScene();
+		currentScene = eScene;
+		this.onCreateSceneCallback.onCreateSceneFinished(eScene);
+		
 	}
 
 }

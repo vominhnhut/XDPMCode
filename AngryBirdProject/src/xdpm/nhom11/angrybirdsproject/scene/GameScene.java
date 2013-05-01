@@ -1,30 +1,34 @@
 package xdpm.nhom11.angrybirdsproject.scene;
 
+import org.andengine.engine.camera.hud.HUD;
 import org.andengine.entity.scene.background.Background;
-import org.andengine.entity.scene.menu.item.SpriteMenuItem;
 import org.andengine.entity.text.Text;
 import org.andengine.util.adt.color.Color;
+
+import entities.pack.Map;
 
 import xdpm.nhom11.angrybirdsproject.resourcemanager.ResourcesManager;
 import xdpm.nhom11.angrybirdsproject.scene.SceneManager.SceneType;
 
-public class WorldScene extends BaseScene{
+public class GameScene extends BaseScene {
 
-	SpriteMenuItem btn;
-	Text text;
+	Map mMap;
 	@Override
 	public void createScene() {
 		// TODO Auto-generated method stub
-		btn = new SpriteMenuItem(
-				0,
-				this.resourcesManager.texturepackerhelper.CirBig_ice_TiledTexture,
-				this.vbom);
-		btn.setPosition(this.camera.getCenterX(),this.camera.getCenterY());
-		this.setBackground(new Background(Color.BLUE));
-		text=new Text(100, 100, ResourcesManager.getInstance().font, "angry birds", vbom);
-		this.attachChild(btn);
-		this.attachChild(text);
-		
+		mMap=new Map(activity, vbom);
+		createHUD();
+		this.setBackground(new Background(Color.CYAN));
+		this.registerUpdateHandler(Map.mPhysicsWorld);
+
+		this.mMap.Load();
+		this.mMap.Attached(this);
+		//this.mMap.setcamera(camera);
+
+		// camera.setChaseEntity(mMap.getEntity());
+		//
+		this.setOnSceneTouchListener(mMap);
+		this.registerUpdateHandler(mMap);
 	}
 
 	@Override
@@ -44,6 +48,14 @@ public class WorldScene extends BaseScene{
 		// TODO Auto-generated method stub
 		
 	}
-	
+	public void createHUD()
+	{
+		HUD gameHUD=new HUD();
+		
+		
+		camera.setHUD(gameHUD);
+		Text score=new Text(100, 100, resourcesManager.font, "ANGRY BIRDS", vbom);
+		gameHUD.attachChild(score);
+	}
 
 }

@@ -153,14 +153,22 @@ public class TexturePackerHelper {
 	public static TiledTextureRegion score_10k_white_TiledTexture;
 	public static TiledTextureRegion score_10k_yellow_TiledTexture;
 
+	// effect
+	public static TiledTextureRegion explode_blacksmoke_TiledTexture;
+	public static TiledTextureRegion explode_whitesmoke_TiledTexture;
+	public static TiledTextureRegion blue_feather_TiledTexture;
+	public static TiledTextureRegion black_feather_TiledTexture;
+	public static TiledTextureRegion red_feather_TiledTexture;
+	public static TiledTextureRegion yellow_feather_TiledTexture;
+
 	public static TexturePackTextureRegionLibrary texturePackLibrary;
 	public static TexturePack texturePack;
 
 	public TexturePackerHelper(TextureManager texturemanager,
 			ContextWrapper contextWrapper) {
 		loadTiledTextureBlocks(texturemanager, contextWrapper);
-		loadTiledTextureSprites(texturemanager, contextWrapper);
-		//loadTiledTextureBackGrounds(texturemanager, contextWrapper);
+		loadTiledTextureBirdAndPig(texturemanager, contextWrapper);
+		// loadTiledTextureBackGrounds(texturemanager, contextWrapper);
 		loadTiledTextureScore(texturemanager, contextWrapper);
 		loadTiledTextureWorld(texturemanager, contextWrapper);
 		loadTiledTextureButton(texturemanager, contextWrapper);
@@ -180,7 +188,7 @@ public class TexturePackerHelper {
 
 	}
 
-	private void loadTiledTextureSprites(TextureManager texturemanager,
+	private void loadTiledTextureBirdAndPig(TextureManager texturemanager,
 			ContextWrapper contextWrapper) {
 		try {
 			texturePack = new TexturePackLoader(texturemanager, "gfx/")
@@ -221,6 +229,18 @@ public class TexturePackerHelper {
 				BirdAndPig.WHITE_BIRD_ID, 5, 1);
 		YELLOW_BIRD_TILEDTEXTURE = (TiledTextureRegion) getSpriteFromSheet(
 				BirdAndPig.YELLOW_BIRD_ID, 6, 1);
+		explode_whitesmoke_TiledTexture=(TiledTextureRegion) getSpriteFromSheet(
+				BirdAndPig.EXPLODE_WHITESMOKE_ID, 6, 1);
+		explode_blacksmoke_TiledTexture=(TiledTextureRegion) getSpriteFromSheet(
+				BirdAndPig.EXPLODE_BLACKSMOKE_ID, 6, 1);
+		blue_feather_TiledTexture=(TiledTextureRegion) getSpriteFromSheet(
+				BirdAndPig.BLUE_FEATHER_ID, 2, 1);
+		black_feather_TiledTexture=(TiledTextureRegion) getSpriteFromSheet(
+				BirdAndPig.BLACK_FEATHER_ID, 2, 1);;
+		red_feather_TiledTexture=(TiledTextureRegion) getSpriteFromSheet(
+				BirdAndPig.RED_FEATHER_ID,4, 1);;
+		yellow_feather_TiledTexture=(TiledTextureRegion) getSpriteFromSheet(
+				BirdAndPig.YELLOW_FEATHER_ID,4, 1);;
 
 	}
 

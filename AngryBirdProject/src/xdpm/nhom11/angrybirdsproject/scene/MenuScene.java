@@ -76,7 +76,7 @@ public class MenuScene extends BaseScene implements IOnMenuItemClickListener {
 		// TODO Auto-generated method stub
 		switch (pMenuItem.getID()) {
 		case 0:
-			SceneManager.getInstance().CreateWorldScene();
+			SceneManager.getInstance().CreateGameScene();
 
 			return true;
 		case 1:
