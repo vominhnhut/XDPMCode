@@ -11,6 +11,7 @@ import org.andengine.entity.IEntity;
 import org.andengine.entity.primitive.Rectangle;
 import org.andengine.entity.scene.IOnSceneTouchListener;
 import org.andengine.entity.scene.Scene;
+import org.andengine.entity.sprite.AnimatedSprite;
 import org.andengine.extension.physics.box2d.PhysicsConnector;
 import org.andengine.extension.physics.box2d.PhysicsFactory;
 import org.andengine.extension.physics.box2d.PhysicsWorld;
@@ -22,8 +23,13 @@ import android.util.Log;
 
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.Contact;
+import com.badlogic.gdx.physics.box2d.ContactImpulse;
+import com.badlogic.gdx.physics.box2d.ContactListener;
+import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
+import com.badlogic.gdx.physics.box2d.Manifold;
 
 import xdpm.nhom11.angrybirdsproject.bird.Bird;
 import xdpm.nhom11.angrybirdsproject.bird.BlackBird;
@@ -32,11 +38,12 @@ import xdpm.nhom11.angrybirdsproject.bird.RedBird;
 import xdpm.nhom11.angrybirdsproject.bird.WhiteBird;
 import xdpm.nhom11.angrybirdsproject.bird.YellowBird;
 import xdpm.nhom11.angrybirdsproject.physicseditor.PhysicsEditorContent;
+import xdpm.nhom11.angrybirdsproject.resourcemanager.ResourcesManager;
 
 public class Map implements IOnSceneTouchListener, IUpdateHandler {
 
 	public static PhysicsWorld mPhysicsWorld;
-	public static VertexBufferObjectManager VBO;
+
 	// biến tạm tạo fixturedef cho toàn bộ object;
 	FixtureDef fx;
 
@@ -54,10 +61,10 @@ public class Map implements IOnSceneTouchListener, IUpdateHandler {
 	SmoothCamera camera;
 
 	public Map(Context context, VertexBufferObjectManager vbo) {
-		this.VBO = vbo;
 
 		Map.mPhysicsWorld = new PhysicsWorld(new Vector2(0, -10), false);
 		fx = PhysicsFactory.createFixtureDef(50, 0.2f, 1f);
+		Map.mPhysicsWorld.setContactListener(createContactListener());
 	}
 
 	public void Load() {
@@ -90,7 +97,8 @@ public class Map implements IOnSceneTouchListener, IUpdateHandler {
 
 	public void CreateEarthSurface() {
 
-		staticRect = new Rectangle(0f, 0f, 10000f, 1f, this.VBO);
+		staticRect = new Rectangle(0f, 0f, 10000f, 1f,
+				ResourcesManager.getInstance().vbom);
 		staticRect.setColor(0f, 0f, 0f);
 		staticRect.setAlpha(1);
 
@@ -153,13 +161,14 @@ public class Map implements IOnSceneTouchListener, IUpdateHandler {
 		ListObject.add(ob20);
 		ListObject.add(ob21);
 		ListObject.add(ob22);
+
 	}
 
 	Scene scene;
 
 	public void Attached(Scene scene) {
 		// attach cho chim
-		this.scene=scene;
+		this.scene = scene;
 		for (Bird bird : ListBird) {
 			bird.Attached(scene);
 		}
@@ -171,10 +180,9 @@ public class Map implements IOnSceneTouchListener, IUpdateHandler {
 
 	}
 
-	public void AddBird(Bird bird)
-	{
+	public void AddBird(Bird bird) {
 		bird.Attached(this.scene);
-		
+
 	}
 
 	boolean activeblock = false;
@@ -192,13 +200,12 @@ public class Map implements IOnSceneTouchListener, IUpdateHandler {
 		this.camera = camera;
 		if (camera != null) {
 			camera.setChaseEntity(ListBird.get(0).getSprite());
-			Log.e("camea", "msg");
 
 		}
 	}
 
 	public IEntity getEntity() {
-		return (IEntity) ListBird.get(0).getBody();
+		return (IEntity) ListBird.get(4).getBody();
 	}
 
 	@Override
@@ -213,13 +220,11 @@ public class Map implements IOnSceneTouchListener, IUpdateHandler {
 			activeblock = true;
 		}
 
-		mSlingshot.ReadyShoot(ListBird.get(index));
+		mSlingshot.ReadyShoot(ListBird.get(4));
 		// gán indexmove con chim đang ở trên ná và đưa camera về lại vị trí ban
 		// đầu
 		indexmove = index;
 
-		
-		AddBird(new RedBird(700,500,fx));
 		// camera2D.mSmoothCamera.set(0,0,800,480);
 
 		// đảm bảo lúc này con chim ko bay
@@ -272,7 +277,10 @@ public class Map implements IOnSceneTouchListener, IUpdateHandler {
 			camera.setZoomFactor(1f);
 			zoomed = false;
 		}
+		for (int i = 0; i < ListObject.size(); i++) {
+			ListObject.get(i).onUpdate(pSecondsElapsed);
 
+		}
 		// if(isMove)
 		// {
 		// //đặt con chim tiếp theo vào vị trí bắn
@@ -294,6 +302,100 @@ public class Map implements IOnSceneTouchListener, IUpdateHandler {
 	public void reset() {
 		// TODO Auto-generated method stub
 
+	}
+
+	float maxImpulse;
+
+	private ContactListener createContactListener() {
+
+		ContactListener contactListener = new ContactListener() {
+
+			@Override
+			public void preSolve(Contact contact, Manifold oldManifold) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void postSolve(Contact contact, ContactImpulse impulse) {
+				// TODO Auto-generated method stub
+
+				// for (int j = 0; j < ListBird.size(); j++) {
+
+				maxImpulse = impulse.getNormalImpulses()[0];
+				// for (int i = 1; i < impulse.getNormalImpulses().length; i++)
+				// maxImpulse = Math.max(impulse.getNormalImpulses()[i],
+				// maxImpulse);
+
+				if (maxImpulse > 400f) {
+
+					final Fixture x1 = contact.getFixtureA();
+					final Fixture x2 = contact.getFixtureB();
+
+					if (x1.getBody().getUserData() != null
+							&& x2.getBody().getUserData() != null) {
+						// if (x2.getBody().getUserData().getClass() ==
+						// GameObject.class &&
+						// x1.getBody().getUserData().getClass()
+						// == GameObject.class) {
+						//
+						// ((AnimatedSprite) ((GameObject) x1.getBody()
+						// .getUserData()).getSprite())
+						// .setCurrentTileIndex(3);
+						// }
+						//Log.e("aaaa", x1.getBody().getUserData().getClass().get+"");
+						if (x2.getBody().getUserData().getClass()==YellowBird.class) {
+
+							// ((AnimatedSprite) ((GameObject) x1.getBody()
+							// .getUserData()).getSprite())
+							// .setCurrentTileIndex(3);
+							Log.e("aaaa", "x1.getBody().getUserData().getClass()");
+
+						}
+					}
+				}
+
+				// }
+
+			}
+
+			@Override
+			public void endContact(Contact contact) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void beginContact(Contact contact) {
+				// TODO Auto-generated method stub
+
+			}
+		};
+		return contactListener;
+	}
+
+	// xác định 1 body va chạm đầu tiên
+	public boolean isBodyContacted(Body pBody, Contact pContact) {
+		if (pContact.getFixtureA().getBody().equals(pBody)
+				|| pContact.getFixtureB().getBody().equals(pBody))
+			return true;
+
+		return false;
+	}
+
+	// xác định 2 body nào va chạm
+	public int areBodiesContacted(Body pBody1, Contact pContact) {
+		for (int i = 0; i < ListObject.size(); i++)
+			if (pContact.getFixtureA().getBody().equals(pBody1)
+					|| pContact.getFixtureB().getBody().equals(pBody1)) {
+				if (pContact.getFixtureA().getBody()
+						.equals(ListObject.get(i).getBody())
+						|| pContact.getFixtureB().getBody()
+								.equals(ListObject.get(i).getBody()))
+					return i;
+			}
+
+		return -1;
 	}
 
 }

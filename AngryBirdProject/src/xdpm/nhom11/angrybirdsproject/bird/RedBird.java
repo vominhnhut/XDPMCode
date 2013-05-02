@@ -12,6 +12,7 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import entities.pack.Map;
 
 import xdpm.nhom11.angrybirdsproject.physicseditor.PhysicsEditorShapeLibrary;
+import xdpm.nhom11.angrybirdsproject.resourcemanager.ResourcesManager;
 import xdpm.nhom11.angrybirdsproject.resourcemanager.TexturePackerHelper;
 
 public class RedBird extends Bird {
@@ -35,10 +36,8 @@ public class RedBird extends Bird {
 		// TODO Auto-generated method stub
 
 		mSprite = new AnimatedSprite(mPosition.x, mPosition.y,
-				TexturePackerHelper.RED_BIRD_TILEDTEXTURE, Map.VBO);
-		
-		
-		
+				TexturePackerHelper.RED_BIRD_TILEDTEXTURE,
+				ResourcesManager.getInstance().vbom);
 
 	}
 
@@ -48,6 +47,7 @@ public class RedBird extends Bird {
 
 		this.mBody = physicseditor.createBody("RED BIRD", this.mSprite,
 				physicsworld, this.mFixture);
+		super.LoadBody(physicseditor, physicsworld);
 	}
 
 }

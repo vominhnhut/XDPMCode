@@ -7,6 +7,7 @@ import org.andengine.opengl.vbo.VertexBufferObjectManager;
 
 import xdpm.nhom11.angrybirdsproject.physicseditor.PhysicsEditorContent;
 import xdpm.nhom11.angrybirdsproject.physicseditor.PhysicsEditorShapeLibrary;
+import xdpm.nhom11.angrybirdsproject.resourcemanager.ResourcesManager;
 import xdpm.nhom11.angrybirdsproject.resourcemanager.TexturePackerHelper;
 
 import com.badlogic.gdx.math.Vector2;
@@ -33,16 +34,18 @@ public class BlackBird extends Bird {
 	@Override
 	public void LoadResource() {
 		// TODO Auto-generated method stub
-	
 
 		mSprite = new AnimatedSprite(mPosition.x, mPosition.y,
-				TexturePackerHelper.BLACK_BIRD_TILEDTEXTURE, Map.VBO);
+				TexturePackerHelper.BLACK_BIRD_TILEDTEXTURE,
+				ResourcesManager.getInstance().vbom);
 	}
 
 	@Override
 	public void LoadBody(PhysicsEditorShapeLibrary physicseditor,
 			PhysicsWorld physicsworld) {
+		// TODO Auto-generated method stub
 		this.mBody = physicseditor.createBody("BLACK BIRD", this.mSprite,
 				physicsworld, this.mFixture);
+		super.LoadBody(physicseditor, physicsworld);
 	}
 }

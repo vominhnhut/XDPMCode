@@ -2,6 +2,7 @@ package xdpm.nhom11.angrybirdsproject.resourcemanager;
 
 import org.andengine.engine.Engine;
 import org.andengine.engine.camera.Camera;
+import org.andengine.engine.camera.SmoothCamera;
 import org.andengine.opengl.font.Font;
 import org.andengine.opengl.font.FontFactory;
 import org.andengine.opengl.texture.ITexture;
@@ -14,6 +15,7 @@ import android.graphics.Color;
 
 import xdpm.nhom11.angrybirdsproject.GameActivity;
 import xdpm.nhom11.angrybirdsproject.physicseditor.PhysicsEditorContent;
+import xdpm.nhom11.angrybirdsproject.physicseditor.PhysicsEditorShapeLibrary;
 
 public class ResourcesManager {
 
@@ -22,10 +24,11 @@ public class ResourcesManager {
 	public TexturePackerHelper texturepackerhelper;
 	public Engine engine;
 	public GameActivity activity;
-	public Camera camera;
+	public SmoothCamera camera;
 	public VertexBufferObjectManager vbom;
 	public Font font;
-	public PhysicsEditorContent physicseditorcontent;
+	public PhysicsEditorShapeLibrary physicseditorbirdandpig = new PhysicsEditorShapeLibrary();;
+	public PhysicsEditorShapeLibrary physicseditorblock = new PhysicsEditorShapeLibrary();;
 
 	// ---------------------------------------------
 	// TEXTURES & TEXTURE REGIONS
@@ -38,11 +41,15 @@ public class ResourcesManager {
 	public void loadResource() {
 		texturepackerhelper = new TexturePackerHelper(
 				activity.getTextureManager(), activity);
+		loadGameResources();
 
 	}
 
 	public void loadBodyResource() {
-		physicseditorcontent = new PhysicsEditorContent(activity);
+
+		physicseditorbirdandpig.open(activity, "gfx/body/BIRDANDPIG_BODY.xml");
+
+		physicseditorblock.open(activity, "gfx/body/BLOCK_BODY.xml");
 	}
 
 	public void loadMenuResources() {
@@ -69,18 +76,6 @@ public class ResourcesManager {
 	}
 
 	private void loadGameFonts() {
-
-	}
-
-	private void loadGameAudio() {
-
-	}
-
-	public void loadSplashScreen() {
-
-	}
-
-	public void loadGameFont() {
 		FontFactory.setAssetBasePath("font/");
 		final ITexture mainFontTexture = new BitmapTextureAtlas(
 				activity.getTextureManager(), 256, 256,
@@ -89,7 +84,18 @@ public class ResourcesManager {
 				mainFontTexture, activity.getAssets(), "angrybirdsfont.ttf",
 				100, true, Color.WHITE, 2, Color.BLACK);
 		font.load();
+
 	}
+
+	private void loadGameAudio() {
+		SoundHelper.LoadSound();
+
+	}
+
+	public void loadSplashScreen() {
+
+	}
+
 
 	public void unloadSplashScreen() {
 
@@ -107,7 +113,7 @@ public class ResourcesManager {
 	 *            we can latter access them from different classes (eg. scenes)
 	 */
 	public static void prepareManager(Engine engine, GameActivity activity,
-			Camera camera, VertexBufferObjectManager vbom) {
+			SmoothCamera camera, VertexBufferObjectManager vbom) {
 		getInstance().engine = engine;
 		getInstance().activity = activity;
 		getInstance().camera = camera;

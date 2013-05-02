@@ -5,6 +5,7 @@ import org.andengine.extension.physics.box2d.PhysicsWorld;
 import org.andengine.opengl.vbo.VertexBufferObjectManager;
 
 import xdpm.nhom11.angrybirdsproject.physicseditor.PhysicsEditorShapeLibrary;
+import xdpm.nhom11.angrybirdsproject.resourcemanager.ResourcesManager;
 import xdpm.nhom11.angrybirdsproject.resourcemanager.TexturePackerHelper;
 
 import com.badlogic.gdx.math.Vector2;
@@ -13,28 +14,28 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import entities.pack.Map;
 
 public class WhiteBird extends Bird {
-	
-	
+
 	public WhiteBird(PhysicsEditorShapeLibrary physicseditor,
 			PhysicsWorld physicsworld, FixtureDef fixtureDef) {
-		super(physicseditor, physicsworld,fixtureDef);
+		super(physicseditor, physicsworld, fixtureDef);
 		// TODO Auto-generated constructor stub
 	}
-	public WhiteBird(FixtureDef fixturedef)
-	{
+
+	public WhiteBird(FixtureDef fixturedef) {
 		super(fixturedef);
 	}
-	public WhiteBird(float pX,float pY,FixtureDef fixturedef)
-	{
-		super(pX,pY,fixturedef);
+
+	public WhiteBird(float pX, float pY, FixtureDef fixturedef) {
+		super(pX, pY, fixturedef);
 	}
+
 	@Override
 	public void LoadResource() {
 		// TODO Auto-generated method stub
-	
+
 		mSprite = new AnimatedSprite(mPosition.x, mPosition.y,
 				TexturePackerHelper.WHITE_BIRD_TILEDTEXTURE,
-				Map.VBO);
+				ResourcesManager.getInstance().vbom);
 	}
 
 	@Override
@@ -44,5 +45,6 @@ public class WhiteBird extends Bird {
 
 		this.mBody = physicseditor.createBody("WHITE BIRD", this.mSprite,
 				physicsworld, this.mFixture);
+		super.LoadBody(physicseditor, physicsworld);
 	}
 }

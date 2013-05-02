@@ -1,49 +1,54 @@
 package entities.pack;
 
+import org.andengine.engine.handler.IUpdateHandler;
 import org.andengine.entity.scene.Scene;
 import org.andengine.entity.sprite.AnimatedSprite;
 import org.andengine.extension.physics.box2d.PhysicsConnector;
 import org.andengine.extension.physics.box2d.PhysicsWorld;
 import org.andengine.opengl.texture.region.TiledTextureRegion;
-import org.andengine.opengl.vbo.VertexBufferObjectManager;
-
-import android.util.Log;
-import android.widget.Switch;
 
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 
-import xdpm.nhom11.angrybirdsproject.physicseditor.PhysicsEditorContent;
 import xdpm.nhom11.angrybirdsproject.physicseditor.PhysicsEditorShapeLibrary;
+import xdpm.nhom11.angrybirdsproject.resourcemanager.ResourcesManager;
 import xdpm.nhom11.angrybirdsproject.resourcemanager.TexturePackerHelper;
 
-public class GameObject  extends GameEntity {
+public class GameObject extends GameEntity implements IUpdateHandler {
 
 	String ID;
 	TiledTextureRegion temp;
+	float lifeValue = 5000;
+	float currentlifeValue;
+
+	@Override
+	public void Collide(float force) {
+		// TODO Auto-generated method stub
+		currentlifeValue -= force;
+
+	}
 
 	public GameObject(String ID, PhysicsEditorShapeLibrary physicseditor,
 			PhysicsWorld physicsworld, FixtureDef fixturedef) {
 
 		this.ID = ID;
-		// super(physicseditor, physicsworld, fixturedef);
-		// Log.e("aassd", "contructor");
 		this.mFixture = fixturedef;
 		this.LoadResource();
 		this.LoadBody(physicseditor, physicsworld);
 		this.mPhysicsConnector = new PhysicsConnector(mSprite, mBody);
+		currentlifeValue = lifeValue;
 
 	}
 
 	public GameObject(String ID, FixtureDef fixturedef) {
 		super(fixturedef);
-		Log.e("red", "aaaa");
 
 		this.ID = ID;
 		this.LoadResource();
-		this.LoadBody(PhysicsEditorContent.physicseditorblock,
+		this.LoadBody(ResourcesManager.getInstance().physicseditorblock,
 				Map.mPhysicsWorld);
 		this.mPhysicsConnector = new PhysicsConnector(mSprite, mBody);
+		currentlifeValue = lifeValue;
 
 	}
 
@@ -51,10 +56,11 @@ public class GameObject  extends GameEntity {
 		super(pX, pY, fixturedef);
 		this.ID = ID;
 		this.LoadResource();
-		this.LoadBody(PhysicsEditorContent.physicseditorblock,
+		this.LoadBody(ResourcesManager.getInstance().physicseditorblock,
 				Map.mPhysicsWorld);
 		this.mPhysicsConnector = new PhysicsConnector(mSprite, mBody);
 		Map.mPhysicsWorld.registerPhysicsConnector(this.mPhysicsConnector);
+		currentlifeValue = lifeValue;
 
 	}
 
@@ -63,12 +69,13 @@ public class GameObject  extends GameEntity {
 		super(pX, pY, rotation, fixturedef);
 		this.ID = ID;
 		this.LoadResource();
-		this.LoadBody(PhysicsEditorContent.physicseditorblock,
+		this.LoadBody(ResourcesManager.getInstance().physicseditorblock,
 				Map.mPhysicsWorld);
 		this.mPhysicsConnector = new PhysicsConnector(mSprite, mBody);
 		this.setTransform(mPosition, mRotation);
 		Map.mPhysicsWorld.registerPhysicsConnector(this.mPhysicsConnector);
 		this.mBody.setType(BodyType.StaticBody);
+		currentlifeValue = lifeValue;
 
 	}
 
@@ -83,7 +90,7 @@ public class GameObject  extends GameEntity {
 		// TODO Auto-generated method stub
 		CheckID();
 		this.mSprite = new AnimatedSprite(this.mPosition.x, this.mPosition.y,
-				temp,Map.VBO);
+				temp, ResourcesManager.getInstance().vbom);
 	}
 
 	@Override
@@ -92,6 +99,7 @@ public class GameObject  extends GameEntity {
 		// TODO Auto-generated method stub
 		this.mBody = physicseditor.createBody(ID, mSprite, physicsworld,
 				mFixture);
+		this.mBody.setUserData(this);
 	}
 
 	public void CheckID() {
@@ -220,6 +228,42 @@ public class GameObject  extends GameEntity {
 		} else if (ID.equalsIgnoreCase("CHEST")) {
 			temp = TexturePackerHelper.Chest_TiledTexture;
 		}
+
+	}
+
+	@Override
+	public void onUpdate(float pSecondsElapsed) {
+		// TODO Auto-generated method stub
+		AutoUpdateState();
+
+	}
+
+	private void AutoUpdateState() {
+		float percent = (currentlifeValue / lifeValue) * 100;
+		if (currentlifeValue > 0) {
+
+//			if (percent > 50 && percent <= 75) {
+//				this.mSprite.setCurrentTileIndex(1);
+//
+//			} else if (percent > 25 && percent <= 50) {
+//				this.mSprite.setCurrentTileIndex(2);
+//
+//			} else if (percent > 0 && percent <= 25) {
+//				this.mSprite.setCurrentTileIndex(3);
+//
+//			}
+
+		}
+		else
+		{
+			this.mSprite.setCurrentTileIndex(3);
+		}
+
+	}
+
+	@Override
+	public void reset() {
+		// TODO Auto-generated method stub
 
 	}
 }

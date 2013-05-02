@@ -5,6 +5,7 @@ import org.andengine.extension.physics.box2d.PhysicsWorld;
 import org.andengine.opengl.vbo.VertexBufferObjectManager;
 
 import xdpm.nhom11.angrybirdsproject.physicseditor.PhysicsEditorShapeLibrary;
+import xdpm.nhom11.angrybirdsproject.resourcemanager.ResourcesManager;
 import xdpm.nhom11.angrybirdsproject.resourcemanager.TexturePackerHelper;
 
 import com.badlogic.gdx.math.Vector2;
@@ -15,32 +16,33 @@ import entities.pack.Map;
 public class YellowBird extends Bird {
 	public YellowBird(PhysicsEditorShapeLibrary physicseditor,
 			PhysicsWorld physicsworld, FixtureDef fixtureDef) {
-		super(physicseditor, physicsworld,fixtureDef);
+		super(physicseditor, physicsworld, fixtureDef);
 		// TODO Auto-generated constructor stub
 	}
-	public YellowBird(FixtureDef fixturedef)
-	{
+
+	public YellowBird(FixtureDef fixturedef) {
 		super(fixturedef);
 	}
-	public YellowBird(float pX,float pY,FixtureDef fixturedef)
-	{
-		super(pX,pY,fixturedef);
+
+	public YellowBird(float pX, float pY, FixtureDef fixturedef) {
+		super(pX, pY, fixturedef);
 	}
+
 	@Override
 	public void LoadResource() {
 		// TODO Auto-generated method stub
 
-	
 		mSprite = new AnimatedSprite(mPosition.x, mPosition.y,
 				TexturePackerHelper.YELLOW_BIRD_TILEDTEXTURE,
-				Map.VBO);
+				ResourcesManager.getInstance().vbom);
 	}
 
 	@Override
 	public void LoadBody(PhysicsEditorShapeLibrary physicseditor,
 			PhysicsWorld physicsworld) {
-		
+
 		this.mBody = physicseditor.createBody("YELLOW BIRD", this.mSprite,
 				physicsworld, this.mFixture);
+		super.LoadBody(physicseditor, physicsworld);
 	}
 }

@@ -160,6 +160,9 @@ public class TexturePackerHelper {
 	public static TiledTextureRegion black_feather_TiledTexture;
 	public static TiledTextureRegion red_feather_TiledTexture;
 	public static TiledTextureRegion yellow_feather_TiledTexture;
+	public static TiledTextureRegion wood_feather_TiledTexture;
+	public static TiledTextureRegion ice_feather_TiledTexture;
+	public static TiledTextureRegion rock_feather_TiledTexture;
 
 	public static TexturePackTextureRegionLibrary texturePackLibrary;
 	public static TexturePack texturePack;
@@ -229,18 +232,18 @@ public class TexturePackerHelper {
 				BirdAndPig.WHITE_BIRD_ID, 5, 1);
 		YELLOW_BIRD_TILEDTEXTURE = (TiledTextureRegion) getSpriteFromSheet(
 				BirdAndPig.YELLOW_BIRD_ID, 6, 1);
-		explode_whitesmoke_TiledTexture=(TiledTextureRegion) getSpriteFromSheet(
+		explode_whitesmoke_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
 				BirdAndPig.EXPLODE_WHITESMOKE_ID, 6, 1);
-		explode_blacksmoke_TiledTexture=(TiledTextureRegion) getSpriteFromSheet(
+		explode_blacksmoke_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
 				BirdAndPig.EXPLODE_BLACKSMOKE_ID, 6, 1);
-		blue_feather_TiledTexture=(TiledTextureRegion) getSpriteFromSheet(
+		blue_feather_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
 				BirdAndPig.BLUE_FEATHER_ID, 2, 1);
-		black_feather_TiledTexture=(TiledTextureRegion) getSpriteFromSheet(
-				BirdAndPig.BLACK_FEATHER_ID, 2, 1);;
-		red_feather_TiledTexture=(TiledTextureRegion) getSpriteFromSheet(
-				BirdAndPig.RED_FEATHER_ID,4, 1);;
-		yellow_feather_TiledTexture=(TiledTextureRegion) getSpriteFromSheet(
-				BirdAndPig.YELLOW_FEATHER_ID,4, 1);;
+		black_feather_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
+				BirdAndPig.BLACK_FEATHER_ID, 2, 1);
+		red_feather_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
+				BirdAndPig.RED_FEATHER_ID, 4, 1);
+		yellow_feather_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
+				BirdAndPig.YELLOW_FEATHER_ID, 4, 1);
 
 	}
 
@@ -398,6 +401,12 @@ public class TexturePackerHelper {
 				Block.BANANA_ID, 1, 1);
 		Chest_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
 				Block.CHEST_ID, 1, 1);
+		wood_feather_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
+				Block.WOOD_FRAGMENT_ID, 3, 1);
+		ice_feather_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
+				Block.ICE_FRAGMENT_ID, 3, 1);
+		rock_feather_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
+				Block.ROCK_FRAGMENT_ID, 3, 1);
 
 	}
 

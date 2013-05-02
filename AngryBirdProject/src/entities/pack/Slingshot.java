@@ -14,6 +14,7 @@ import org.andengine.util.math.MathUtils;
 import xdpm.nhom11.angrybirdsproject.bird.Bird;
 import xdpm.nhom11.angrybirdsproject.physicseditor.PhysicsEditorContent;
 import xdpm.nhom11.angrybirdsproject.physicseditor.PhysicsEditorShapeLibrary;
+import xdpm.nhom11.angrybirdsproject.resourcemanager.ResourcesManager;
 import xdpm.nhom11.angrybirdsproject.resourcemanager.TexturePackerHelper;
 
 import android.util.Log;
@@ -90,12 +91,12 @@ public class Slingshot extends GameEntity {
 	public void CreateSlingshot() {
 
 		// dây 1
-		String2 = new Line(0, 0, 0, 0, 10, Map.VBO);
+		String2 = new Line(0, 0, 0, 0, 10, ResourcesManager.getInstance().vbom);
 		String2.setColor(0.4f, 0, 0); // Ä‘áº·t mÃ u cho dÃ¢y
 		String2.setZIndex(-1); // Ä‘áº·t chiá»�u sÃ¢u cho line2
 
 		// dây 2
-		String1 = new Line(0, 0, 0, 0, 10, Map.VBO);
+		String1 = new Line(0, 0, 0, 0, 10, ResourcesManager.getInstance().vbom);
 		String1.setColor(0.4f, 0, 0); // Ä‘áº·t mÃ u
 		String1.setZIndex(4); // Ä‘áº·t Ä‘á»™ sÃ¢u cho dÃ¢y nÃ¡
 
@@ -119,13 +120,13 @@ public class Slingshot extends GameEntity {
 
 		this.LeftBranch = new Sprite(100, 100,
 				TexturePackerHelper.SLINGSHOT_TILEDTEXTURE.getTextureRegion(0),
-				Map.VBO);
+				ResourcesManager.getInstance().vbom);
 		this.RightBranch = new Sprite(0, 0,
 				TexturePackerHelper.SLINGSHOT_TILEDTEXTURE.getTextureRegion(1),
-				Map.VBO);
+				ResourcesManager.getInstance().vbom);
 		this.Rubber = new Sprite(0, 0,
 				TexturePackerHelper.SLING_TILEDTEXTURE.getTextureRegion(0),
-				Map.VBO);
+				ResourcesManager.getInstance().vbom);
 
 	}
 
@@ -229,7 +230,7 @@ public class Slingshot extends GameEntity {
 
 				int eventaction = pSceneTouchEvent.getAction();
 
-				boolean flag = true;
+				// boolean flag = true;
 				switch (eventaction) {
 				// khi cháº¡m xuá»‘ng
 				case TouchEvent.ACTION_DOWN:

@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.andengine.engine.Engine;
 import org.andengine.engine.LimitedFPSEngine;
 import org.andengine.engine.camera.Camera;
+import org.andengine.engine.camera.SmoothCamera;
 import org.andengine.engine.options.EngineOptions;
 import org.andengine.engine.options.ScreenOrientation;
 import org.andengine.engine.options.WakeLockOptions;
@@ -25,13 +26,13 @@ import org.andengine.util.system.CPUUsage;
 import org.xml.sax.Attributes;
 
 import xdpm.nhom11.angrybirdsproject.resourcemanager.ResourcesManager;
+import xdpm.nhom11.angrybirdsproject.resourcemanager.TexturePackerHelper;
 import xdpm.nhom11.angrybirdsproject.scene.SceneManager;
 import xdpm.nhom11.angrybirdsproject.scene.SceneManager.SceneType;
 
 public class GameActivity extends BaseGameActivity {
 
-	
-	private Camera camera;
+	private SmoothCamera camera;
 
 	@Override
 	public Engine onCreateEngine(EngineOptions pEngineOptions) {
@@ -42,10 +43,10 @@ public class GameActivity extends BaseGameActivity {
 	@Override
 	public EngineOptions onCreateEngineOptions() {
 		// TODO Auto-generated method stub
-		camera = new Camera(0, 0, 800, 480);
+		camera = new SmoothCamera(0, 0, 720, 480, 300, 300, 0.5f);
 		EngineOptions engineOptions = new EngineOptions(true,
 				ScreenOrientation.LANDSCAPE_FIXED, new RatioResolutionPolicy(
-						800, 480), this.camera);
+						720, 480), this.camera);
 		engineOptions.getAudioOptions().setNeedsMusic(true).setNeedsSound(true);
 		engineOptions.setWakeLockOptions(WakeLockOptions.SCREEN_ON);
 		return engineOptions;
@@ -59,7 +60,9 @@ public class GameActivity extends BaseGameActivity {
 		ResourcesManager.prepareManager(getEngine(), this, camera,
 				getVertexBufferObjectManager());
 		ResourcesManager.getInstance().loadResource();
-		ResourcesManager.getInstance().loadGameFont();
+
+		ResourcesManager.getInstance().loadBodyResource();
+		ResourcesManager.getInstance().loadGameResources();
 		pOnCreateResourcesCallback.onCreateResourcesFinished();
 
 	}
@@ -70,16 +73,12 @@ public class GameActivity extends BaseGameActivity {
 		// scenemanager=new SceneManager();
 		Scene a = new Scene();
 		a.setBackground(new Background(Color.CYAN));
-		a.attachChild(new Sprite(
-				200,
-				200,
-				ResourcesManager.getInstance().texturepackerhelper.play_btn_TiledTexture,
+		a.attachChild(new Sprite(200, 200,
+				TexturePackerHelper.play_btn_TiledTexture,
 				getVertexBufferObjectManager()));
-		SceneManager.getInstance().setCallback(pOnCreateSceneCallback);		// Sprite a=new GameActivity(
+		SceneManager.getInstance().setCallback(pOnCreateSceneCallback);
 		// TODO Auto-generated method stub
-		SceneManager.getInstance().createEffectTestScene();
-	
-		
+		SceneManager.getInstance().createMenuScene();
 
 	}
 
