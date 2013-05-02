@@ -60,9 +60,9 @@ public class GameActivity extends BaseGameActivity {
 		ResourcesManager.prepareManager(getEngine(), this, camera,
 				getVertexBufferObjectManager());
 		ResourcesManager.getInstance().loadResource();
-
+//
 		ResourcesManager.getInstance().loadBodyResource();
-		ResourcesManager.getInstance().loadGameResources();
+	//	ResourcesManager.getInstance().loadGameResources();
 		pOnCreateResourcesCallback.onCreateResourcesFinished();
 
 	}
