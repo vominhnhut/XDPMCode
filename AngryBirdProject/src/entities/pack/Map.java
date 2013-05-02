@@ -113,10 +113,10 @@ public class Map implements IOnSceneTouchListener, IUpdateHandler {
 
 	public void CreateBlock() {
 
-		GameObject ob1 = new GameObject("WHEEL", 664, 42, 0, fx);
-		GameObject ob2 = new GameObject("WHEEL", 582, 42, 0, fx);
-		GameObject ob3 = new GameObject("WHEEL", 498, 42, 0, fx);
-		GameObject ob4 = new GameObject("WHEEL", 414, 42, 0, fx);
+//		GameObject ob1 = new GameObject("WHEEL", 664, 42, 0, fx);
+//		GameObject ob2 = new GameObject("WHEEL", 582, 42, 0, fx);
+//		GameObject ob3 = new GameObject("WHEEL", 498, 42, 0, fx);
+//		GameObject ob4 = new GameObject("WHEEL", 414, 42, 0, fx);
 		GameObject ob5 = new GameObject("RECLONG_WOOD", 642, 94, 0, fx);
 		GameObject ob6 = new GameObject("RECFULL_WOOD", 430, 146, -90, fx);
 		GameObject ob7 = new GameObject("RECFULL_WOOD", 472, 146, -90, fx);
@@ -136,13 +136,13 @@ public class Map implements IOnSceneTouchListener, IUpdateHandler {
 		GameObject ob18 = new GameObject("RECLONG_WOOD", 436, 94, 0, fx);
 		GameObject ob19 = new GameObject("RECSHORTEST_ROCK", 470, 294, 90, fx);
 		GameObject ob20 = new GameObject("RECMEDIUM_ROCK", 566, 304, 0, fx);
-		GameObject ob21 = new GameObject("FLAG_VN", 556, 380, 0, fx);
+		//GameObject ob21 = new GameObject("FLAG_VN", 556, 380, 0, fx);
 		GameObject ob22 = new GameObject("OTHER_3", 764, 104, 0,
 				PhysicsFactory.createFixtureDef(500, 0.1F, 0.9F));
-		ListObject.add(ob1);
-		ListObject.add(ob2);
-		ListObject.add(ob3);
-		ListObject.add(ob4);
+//		ListObject.add(ob1);
+//		ListObject.add(ob2);
+//		ListObject.add(ob3);
+//		ListObject.add(ob4);
 		ListObject.add(ob5);
 		ListObject.add(ob6);
 		ListObject.add(ob7);
@@ -159,7 +159,7 @@ public class Map implements IOnSceneTouchListener, IUpdateHandler {
 		ListObject.add(ob18);
 		ListObject.add(ob19);
 		ListObject.add(ob20);
-		ListObject.add(ob21);
+		//ListObject.add(ob21);
 		ListObject.add(ob22);
 
 	}
@@ -220,7 +220,7 @@ public class Map implements IOnSceneTouchListener, IUpdateHandler {
 			activeblock = true;
 		}
 
-		mSlingshot.ReadyShoot(ListBird.get(4));
+		mSlingshot.ReadyShoot(ListBird.get(index));
 		// gán indexmove con chim đang ở trên ná và đưa camera về lại vị trí ban
 		// đầu
 		indexmove = index;
@@ -323,9 +323,9 @@ public class Map implements IOnSceneTouchListener, IUpdateHandler {
 				// for (int j = 0; j < ListBird.size(); j++) {
 
 				maxImpulse = impulse.getNormalImpulses()[0];
-				// for (int i = 1; i < impulse.getNormalImpulses().length; i++)
-				// maxImpulse = Math.max(impulse.getNormalImpulses()[i],
-				// maxImpulse);
+				for (int i = 1; i < impulse.getNormalImpulses().length; i++)
+					maxImpulse = Math.max(impulse.getNormalImpulses()[i],
+							maxImpulse);
 
 				if (maxImpulse > 400f) {
 
@@ -343,15 +343,28 @@ public class Map implements IOnSceneTouchListener, IUpdateHandler {
 						// .getUserData()).getSprite())
 						// .setCurrentTileIndex(3);
 						// }
-						//Log.e("aaaa", x1.getBody().getUserData().getClass().get+"");
-						if (x2.getBody().getUserData().getClass()==YellowBird.class) {
+						// Log.e("aaaa",
+						// x1.getBody().getUserData().getClass().get+"");
+						if (x2.getBody().getUserData().getClass() == GameObject.class
+								|| x1.getBody().getUserData().getClass() == GameObject.class) {
 
 							// ((AnimatedSprite) ((GameObject) x1.getBody()
 							// .getUserData()).getSprite())
 							// .setCurrentTileIndex(3);
-							Log.e("aaaa", "x1.getBody().getUserData().getClass()");
+//
+							((AnimatedSprite) ((GameObject) x1.getUserData())
+									.getSprite()).setCurrentTileIndex(3);
+//							((AnimatedSprite) ((GameObject) x2.getUserData())
+//									.getSprite()).setCurrentTileIndex(3);
 
 						}
+//						if (x2.getBody().getUserData().getClass() == RedBird.class) {
+//
+//							// ((AnimatedSprite) ((GameObject) x1.getBody()
+//							// .getUserData()).getSprite())
+//							// .setCurrentTileIndex(3);
+//					
+//						}
 					}
 				}
 
