@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="gen"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/AngryBirdProject"/>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
+	<classpathentry exported="true" kind="lib" path="D:/Study/HK VI/Xay Dung Phan Mem/Project/andengine.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/Study/HK VI/Xay Dung Phan Mem/Project/andenginephysicsbox2dextension.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/Study/HK VI/Xay Dung Phan Mem/Project/andenginetexturepackerextension.jar"/>
+	<classpathentry kind="output" path="bin/classes"/>
+</classpath>
