@@ -1,38 +1,24 @@
 package xdpm.nhom11.angrybirdsproject.scene;
 
-import org.andengine.engine.Engine;
-import org.andengine.engine.camera.Camera;
-import org.andengine.engine.camera.SmoothCamera;
 import org.andengine.entity.scene.Scene;
-import org.andengine.opengl.vbo.VertexBufferObjectManager;
 
-import xdpm.nhom11.angrybirdsproject.resourcemanager.ResourcesManager;
-import xdpm.nhom11.angrybirdsproject.scene.SceneManager.SceneType;
-
-import android.app.Activity;
+import xdpm.nhom11.angrybirdsproject.manager.Game;
+import xdpm.nhom11.angrybirdsproject.manager.SceneManager.SceneType;
 
 public abstract class BaseScene extends Scene {
 	// ---------------------------------------------
 	// VARIABLES
 	// ---------------------------------------------
 
-	protected Engine engine;
-	protected Activity activity;
-	protected ResourcesManager resourcesManager;
-	protected VertexBufferObjectManager vbom;
-	protected SmoothCamera camera;
+	public int iBack = 1;
+	public String name;
 
 	// ---------------------------------------------
 	// CONSTRUCTOR
 	// ---------------------------------------------
 
 	public BaseScene() {
-		this.resourcesManager = ResourcesManager.getInstance();
-		this.engine = resourcesManager.engine;
-		this.activity = resourcesManager.activity;
-		this.vbom = resourcesManager.vbom;
-		this.camera = resourcesManager.camera;
-		createScene();
+
 	}
 
 	// ---------------------------------------------
@@ -45,6 +31,23 @@ public abstract class BaseScene extends Scene {
 
 	public abstract SceneType getSceneType();
 
-	public abstract void disposeScene();
+	public void disposeScene() {
+		this.clearEntityModifiers();
+		this.clearTouchAreas();
+		this.clearUpdateHandlers();
+		this.clearChildScene();
+
+		Game.getInstance().camera.setChaseEntity(null);
+		Game.getInstance().camera.reset();
+		Game.getInstance().camera.setBounds(0, 0,
+				Game.getInstance().camera.getWidth(),
+				Game.getInstance().camera.getHeight());
+		Game.getInstance().camera.setCenterDirect(
+				Game.getInstance().camera.getWidth() / 2,
+				Game.getInstance().camera.getHeight() / 2);
+
+	}
+
+	public abstract void CreateBackground();
 
 }

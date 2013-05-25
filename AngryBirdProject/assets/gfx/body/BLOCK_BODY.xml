@@ -4,9 +4,9 @@
   <bodies numBodies="61">
     <body name="RECEMPTY_WOOD" dynamic="true" numFixtures="1">
       <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+                density="40"
+                friction="0.4"
+                restitution="0.6"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -24,9 +24,9 @@
     </body>
     <body name="RECEMPTY_ROCK" dynamic="true" numFixtures="1">
       <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+                density="70"
+                friction="0.8"
+                restitution="0.2"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -44,9 +44,9 @@
     </body>
     <body name="RECEMPTY_ICE" dynamic="true" numFixtures="1">
       <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+                density="20"
+                friction="0.2"
+                restitution="0.4"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -64,9 +64,9 @@
     </body>
     <body name="TRIAEMPTY_WOOD" dynamic="true" numFixtures="1">
       <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+               density="40"
+                friction="0.4"
+                restitution="0.6"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -86,9 +86,9 @@
     </body>
     <body name="TRIAEMPTY_ROCK" dynamic="true" numFixtures="1">
       <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+                 density="70"
+                friction="0.8"
+                restitution="0.2"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -108,9 +108,9 @@
     </body>
     <body name="TRIAEMPTY_ICE" dynamic="true" numFixtures="1">
       <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+                 density="20"
+                friction="0.2"
+                restitution="0.4"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -130,9 +130,9 @@
     </body>
     <body name="TRIAFULL_WOOD" dynamic="true" numFixtures="1">
       <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+              density="40"
+                friction="0.4"
+                restitution="0.6"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -151,9 +151,9 @@
     </body>
     <body name="TRIAFULL_ROCK" dynamic="true" numFixtures="1">
       <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+                density="70"
+                friction="0.8"
+                restitution="0.2"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -172,9 +172,9 @@
     </body>
     <body name="TRIAFULL_ICE" dynamic="true" numFixtures="1">
       <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+                 density="20"
+                friction="0.2"
+                restitution="0.4"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -193,9 +193,9 @@
     </body>
     <body name="RECFULL_WOOD" dynamic="true" numFixtures="1">
       <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+               density="40"
+                friction="0.4"
+                restitution="0.6"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -213,9 +213,9 @@
     </body>
     <body name="RECFULL_ROCK" dynamic="true" numFixtures="1">
       <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+                 density="70"
+                friction="0.8"
+                restitution="0.2"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -233,9 +233,9 @@
     </body>
     <body name="RECFULL_ICE" dynamic="true" numFixtures="1">
       <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+                density="20"
+                friction="0.2"
+                restitution="0.4"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -253,9 +253,9 @@
     </body>
     <body name="RECLONG_WOOD" dynamic="true" numFixtures="1">
       <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+                density="40"
+                friction="0.4"
+                restitution="0.6"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -273,9 +273,9 @@
     </body>
     <body name="RECLONG_ROCK" dynamic="true" numFixtures="1">
       <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+                density="70"
+                friction="0.8"
+                restitution="0.2"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -293,9 +293,9 @@
     </body>
     <body name="RECLONG_ICE" dynamic="true" numFixtures="1">
       <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+                density="20"
+                friction="0.2"
+                restitution="0.4"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -313,9 +313,9 @@
     </body>
     <body name="RECMEDIUM_WOOD" dynamic="true" numFixtures="1">
       <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+                density="40"
+                friction="0.4"
+                restitution="0.6"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -333,9 +333,9 @@
     </body>
     <body name="RECMEDIUM_ROCK" dynamic="true" numFixtures="1">
       <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+                  density="70"
+                friction="0.8"
+                restitution="0.2"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -353,9 +353,9 @@
     </body>
     <body name="RECMEDIUM_ICE" dynamic="true" numFixtures="1">
       <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+               density="20"
+                friction="0.2"
+                restitution="0.4"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -373,9 +373,9 @@
     </body>
     <body name="RECSHORT_WOOD" dynamic="true" numFixtures="1">
       <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+             density="40"
+                friction="0.4"
+                restitution="0.6"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -393,9 +393,9 @@
     </body>
     <body name="RECSHORT_ROCK" dynamic="true" numFixtures="1">
       <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+                 density="70"
+                friction="0.8"
+                restitution="0.2"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -413,9 +413,9 @@
     </body>
     <body name="RECSHORT_ICE" dynamic="true" numFixtures="1">
       <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+                 density="20"
+                friction="0.2"
+                restitution="0.4"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -433,9 +433,9 @@
     </body>
     <body name="RECSHORTEST_WOOD" dynamic="true" numFixtures="1">
       <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+           density="40"
+                friction="0.4"
+                restitution="0.6"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -453,9 +453,9 @@
     </body>
     <body name="RECSHORTEST_ROCK" dynamic="true" numFixtures="1">
       <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+                 density="70"
+                friction="0.8"
+                restitution="0.2"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -473,9 +473,9 @@
     </body>
     <body name="RECSHORTEST_ICE" dynamic="true" numFixtures="1">
       <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+                 density="20"
+                friction="0.2"
+                restitution="0.4"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -493,9 +493,9 @@
     </body>
     <body name="SQUAREMEDIUM_WOOD" dynamic="true" numFixtures="1">
       <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+              density="40"
+                friction="0.4"
+                restitution="0.6"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -523,9 +523,9 @@
     </body>
     <body name="SQUAREMEDIUM_ROCK" dynamic="true" numFixtures="1">
       <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+                 density="70"
+                friction="0.8"
+                restitution="0.2"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -553,9 +553,9 @@
     </body>
     <body name="SQUAREMEDIUM_ICE" dynamic="true" numFixtures="1">
       <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+              density="20"
+                friction="0.2"
+                restitution="0.4"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -583,9 +583,9 @@
     </body>
     <body name="SQUARESMALL_WOOD" dynamic="true" numFixtures="1">
       <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+              density="40"
+                friction="0.4"
+                restitution="0.6"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -603,9 +603,9 @@
     </body>
     <body name="SQUARESMALL_ROCK" dynamic="true" numFixtures="1">
       <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+                 density="70"
+                friction="0.8"
+                restitution="0.2"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -622,10 +622,9 @@
       </fixture>
     </body>
     <body name="SQUARESMALL_ICE" dynamic="true" numFixtures="1">
-      <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+      <fixture  density="20"
+                friction="0.2"
+                restitution="0.4"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -643,9 +642,9 @@
     </body>
     <body name="CIRBIG_WOOD" dynamic="true" numFixtures="1">
       <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+             density="40"
+                friction="0.4"
+                restitution="0.6"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -658,9 +657,9 @@
     </body>
     <body name="CIRBIG_ROCK" dynamic="true" numFixtures="1">
       <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+                density="70"
+                friction="0.8"
+                restitution="0.2"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -673,9 +672,9 @@
     </body>
     <body name="CIRBIG_ICE" dynamic="true" numFixtures="1">
       <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+                 density="20"
+                friction="0.2"
+                restitution="0.4"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -703,9 +702,9 @@
     </body>
     <body name="CIRMEDIUM_ROCK" dynamic="true" numFixtures="1">
       <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+                 density="70"
+                friction="0.8"
+                restitution="0.2"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -718,9 +717,9 @@
     </body>
     <body name="CIRMEDIUM_ICE" dynamic="true" numFixtures="1">
       <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+                density="20"
+                friction="0.2"
+                restitution="0.4"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"

@@ -13,13 +13,11 @@ public class BlackBird_test extends TestCase {
 	public BlackBird_test(String name) {
 		super(name);
 	}
+	
+	BlackBird blackBird;
 
 	protected void setUp() throws Exception {
 		super.setUp();
-		FixtureDef fd = new PhysicsFactory().createFixtureDef((float)3.1, (float)3.2, (float)3.3);
-		BlackBird blackBird = new BlackBird((float)3.4, (float)4.1,fd);
-		
-		//assertEquals(expected, )
 	}
 
 	protected void tearDown() throws Exception {
@@ -55,6 +53,14 @@ public class BlackBird_test extends TestCase {
 	}
 
 	public void testBlackBird() {
+		
+		FixtureDef fd = new PhysicsFactory().createFixtureDef((float)0.1, (float)0.2, (float)0.3);
+		BlackBird blackBird = new BlackBird((float)0.4, (float)0.7,fd);
+		assertEquals((float) 0.4, blackBird.getPosition().x);
+		assertEquals((float) 0.7, blackBird.getPosition().y);
+		//assertEquals((float) 0.1, blackBird.getFixtureDef().density);
+		//assertEquals((float) 0.2, blackBird.getFixtureDef().restitution);
+		//assertEquals((float) 0.3, blackBird.getFixtureDef().friction);
 		fail("Not yet implemented");
 	}
 

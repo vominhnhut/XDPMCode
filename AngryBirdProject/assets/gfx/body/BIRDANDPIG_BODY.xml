@@ -4,9 +4,9 @@
   <bodies numBodies="12">
     <body name="YELLOW BIRD" dynamic="true" numFixtures="1">
       <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+                density="30"
+                friction="0.2"
+                restitution="0.1"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -19,9 +19,9 @@
     </body>
     <body name="BLUE BIRD" dynamic="true" numFixtures="1">
       <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+              density="30"
+                friction="0.2"
+                restitution="0.1"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -34,9 +34,9 @@
     </body>
     <body name="BLACK BIRD" dynamic="true" numFixtures="1">
       <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+                density="30"
+                friction="0.2"
+                restitution="0.1"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -49,9 +49,9 @@
     </body>
     <body name="RED BIRD" dynamic="true" numFixtures="1">
       <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+                density="50"
+                friction="0.2"
+                restitution="0.3"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -64,9 +64,9 @@
     </body>
     <body name="WHITE BIRD" dynamic="true" numFixtures="1">
       <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+                density="30"
+                friction="0.2"
+                restitution="0.1"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -94,9 +94,9 @@
     </body>
     <body name="SMALL PIG" dynamic="true" numFixtures="1">
       <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+                density="30"
+                friction="0.2"
+                restitution="0.1"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -109,9 +109,9 @@
     </body>
     <body name="MEDIUM PIG" dynamic="true" numFixtures="1">
       <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+                density="30"
+                friction="0.2"
+                restitution="0.1"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -124,9 +124,9 @@
     </body>
     <body name="LARGE BIG" dynamic="true" numFixtures="1">
       <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+               density="30"
+                friction="0.2"
+                restitution="0.1"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -139,9 +139,9 @@
     </body>
     <body name="HELMET PIG" dynamic="true" numFixtures="1">
       <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+                density="30"
+                friction="0.2"
+                restitution="0.1"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -154,9 +154,9 @@
     </body>
     <body name="OLD PIG" dynamic="true" numFixtures="1">
       <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+                density="30"
+                friction="0.2"
+                restitution="0.1"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"
@@ -228,9 +228,9 @@
     </body>
     <body name="KING PIG" dynamic="true" numFixtures="1">
       <fixture
-                density="2"
-                friction="0"
-                restitution="0"
+              density="30"
+                friction="0.2"
+                restitution="0.1"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="65535"

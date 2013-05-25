@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texture version="1" file="Background2.png" type="bitmap" width="2294" height="2294" pixelformat="RGBA_8888" minfilter="linear" magfilter="linear" wrapt="clamp" wraps="clamp" premultiplyalpha="false">
+    <!-- Created with TexturePacker http://texturepacker.com -->
+    <!-- $TexturePacker:SmartUpdate:685f08165882b08e69fce3b405f3879c$ -->
+    <textureregion id="0" src="BACKGROUNDS_LS.png" x="2" y="2" width="1936" height="1208" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="1936" srcheight="1208"/>
+    <textureregion id="1" src="SPLASHES_SHEET_1.png" x="2" y="1212" width="1920" height="1080" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="1920" srcheight="1080"/>
+    <textureregion id="2" src="SPLASHES_SHEET_2.png" x="1940" y="2" width="317" height="493" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="317" srcheight="493"/>
+</texture>

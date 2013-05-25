@@ -2,8 +2,7 @@ package xdpm.nhom11.angrybirdsproject.scene;
 
 import org.andengine.input.touch.TouchEvent;
 
-import xdpm.nhom11.angrybirdsproject.effectmanager.EffectManager;
-import xdpm.nhom11.angrybirdsproject.scene.SceneManager.SceneType;
+import xdpm.nhom11.angrybirdsproject.manager.SceneManager.SceneType;
 
 public class EffectTestScene extends BaseScene {
 
@@ -35,8 +34,15 @@ public class EffectTestScene extends BaseScene {
 	public boolean onSceneTouchEvent(TouchEvent pSceneTouchEvent) {
 		// TODO Auto-generated method stub
 
-		EffectManager.PigDead(pSceneTouchEvent.getX(),pSceneTouchEvent.getY(), this);
+		// EffectManager.PigDead(pSceneTouchEvent.getX(),pSceneTouchEvent.getY(),
+		// this);
 		return true;
+	}
+
+	@Override
+	public void CreateBackground() {
+		// TODO Auto-generated method stub
+
 	}
 
 }

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texture version="1" file="GameScene.png" type="bitmap" width="804" height="216" pixelformat="RGBA_8888" minfilter="linear" magfilter="linear" wrapt="clamp" wraps="clamp" premultiplyalpha="false">
+    <!-- Created with TexturePacker http://texturepacker.com -->
+    <!-- $TexturePacker:SmartUpdate:d84938bfb24d3bdd0c3b920eaa6a33e8$ -->
+    <textureregion id="0" src="1.png" x="2" y="2" width="10" height="800" rotated="true" trimmed="false" srcx="0" srcy="0" srcwidth="10" srcheight="800"/>
+    <textureregion id="1" src="2.png" x="304" y="14" width="200" height="50" rotated="true" trimmed="false" srcx="0" srcy="0" srcwidth="200" srcheight="50"/>
+    <textureregion id="2" src="3.png" x="2" y="14" width="300" height="200" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="300" srcheight="200"/>
+</texture>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<texture version="1" file="MapBackground3.png" type="bitmap" width="780" height="780" pixelformat="RGBA_8888" minfilter="linear" magfilter="linear" wrapt="clamp" wraps="clamp" premultiplyalpha="false">
+    <!-- Created with TexturePacker http://texturepacker.com -->
+    <!-- $TexturePacker:SmartUpdate:ca0c6d1cd53977fd4b738934a0cecda4$ -->
+    <textureregion id="0" src="earth.png" x="5" y="48" width="590" height="130" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="590" srcheight="130"/>
+    <textureregion id="1" src="eathsurface2.png" x="5" y="706" width="452" height="69" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="452" srcheight="69"/>
+    <textureregion id="2" src="eathsurface_1.png" x="5" y="5" width="591" height="35" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="591" srcheight="35"/>
+    <textureregion id="3" src="sky.png" x="5" y="186" width="512" height="512" rotated="false" trimmed="false" srcx="0" srcy="0" srcwidth="512" srcheight="512"/>
+</texture>

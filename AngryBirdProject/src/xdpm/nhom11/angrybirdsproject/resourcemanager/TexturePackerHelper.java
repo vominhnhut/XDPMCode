@@ -9,7 +9,6 @@ import org.andengine.extension.texturepacker.opengl.texture.util.texturepacker.e
 import org.andengine.opengl.texture.TextureManager;
 import org.andengine.opengl.texture.region.ITiledTextureRegion;
 import org.andengine.opengl.texture.region.TiledTextureRegion;
-import org.andengine.ui.activity.BaseGameActivity;
 import org.andengine.util.debug.Debug;
 
 import android.content.ContextWrapper;
@@ -28,13 +27,14 @@ public class TexturePackerHelper {
 	public static TiledTextureRegion MEDIUM_PIG_TILEDTEXTURE;
 	public static TiledTextureRegion OLD_PIG_TILEDTEXTURE;
 
+	public static TiledTextureRegion Full_background;
 	public static TiledTextureRegion SLING_TILEDTEXTURE;
 	public static TiledTextureRegion SLINGSHOT_TILEDTEXTURE;
 	public static TiledTextureRegion SMALL_PIG_TILEDTEXTURE;
 
 	// TiledTextureRegion HÌNH NỀN
-	public static TiledTextureRegion BackGround_TiledTexture;
-	public static TiledTextureRegion Earth_TiledTexture;
+	public static TiledTextureRegion background_1_TiledTexture;
+	public static TiledTextureRegion surface_TiledTexture;
 
 	// TiledTextureRegion VẬT LIỆU
 	public static TiledTextureRegion CirBig_ice_TiledTexture;
@@ -163,22 +163,45 @@ public class TexturePackerHelper {
 	public static TiledTextureRegion wood_feather_TiledTexture;
 	public static TiledTextureRegion ice_feather_TiledTexture;
 	public static TiledTextureRegion rock_feather_TiledTexture;
+	public static TiledTextureRegion smoke_fagment_TiledTexture;
+
+	public static TiledTextureRegion BACKGROUNDS_LS_ID;
+	public static TiledTextureRegion SPLASHES_SHEET_1_ID;
+	public static TiledTextureRegion SPLASHES_SHEET_2_ID;
+
+	// gameSCENE
+	public static TiledTextureRegion Popup_ID_1;
+	public static TiledTextureRegion Ketthuc_ID_1;
+	public static TiledTextureRegion Ketthuc_ID_2;
+
+	// MAP BACKGROUND2;
+	public static TiledTextureRegion MapBackground2_sky;
+	public static TiledTextureRegion MapBackground2_;
 
 	public static TexturePackTextureRegionLibrary texturePackLibrary;
 	public static TexturePack texturePack;
 
 	public TexturePackerHelper(TextureManager texturemanager,
 			ContextWrapper contextWrapper) {
+
+	}
+
+	public void Load(TextureManager texturemanager,
+			ContextWrapper contextWrapper) {
+
 		loadTiledTextureBlocks(texturemanager, contextWrapper);
 		loadTiledTextureBirdAndPig(texturemanager, contextWrapper);
-		// loadTiledTextureBackGrounds(texturemanager, contextWrapper);
+
 		loadTiledTextureScore(texturemanager, contextWrapper);
 		loadTiledTextureWorld(texturemanager, contextWrapper);
 		loadTiledTextureButton(texturemanager, contextWrapper);
+
+		loadTiledTextureGameScene(texturemanager, contextWrapper);
 	}
 
 	// LÂ�?Y SPRITES TỪ SHEET
-	private ITiledTextureRegion getSpriteFromSheet(int id, int columns, int rows) {
+	public static ITiledTextureRegion getSpriteFromSheet(int id, int columns,
+			int rows) {
 		TexturePackerTextureRegion localTexturePackTextureRegion = (TexturePackerTextureRegion) texturePackLibrary
 				.getIDMapping().get(id);
 		return TiledTextureRegion.create(
@@ -235,7 +258,7 @@ public class TexturePackerHelper {
 		explode_whitesmoke_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
 				BirdAndPig.EXPLODE_WHITESMOKE_ID, 6, 1);
 		explode_blacksmoke_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
-				BirdAndPig.EXPLODE_BLACKSMOKE_ID, 6, 1);
+				BirdAndPig.EXPLODE_BLACKSMOKE_ID, 7, 1);
 		blue_feather_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
 				BirdAndPig.BLUE_FEATHER_ID, 2, 1);
 		black_feather_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
@@ -244,15 +267,32 @@ public class TexturePackerHelper {
 				BirdAndPig.RED_FEATHER_ID, 4, 1);
 		yellow_feather_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
 				BirdAndPig.YELLOW_FEATHER_ID, 4, 1);
+		smoke_fagment_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
+				BirdAndPig.SMOKE_FRAGMENT_ID, 4, 1);
 
 	}
 
-	private void loadTiledTextureBackGrounds(TextureManager texturemanager,
+	public void loadBackgroundByID(TextureManager texturemanager,
+			ContextWrapper contextWrapper, String ID) {
+		try {
+			texturePack = new TexturePackLoader(texturemanager, "gfx/")
+					.loadFromAsset(contextWrapper.getAssets(),
+							"full_background.xml");
+			texturePack.loadTexture();
+			texturePackLibrary = texturePack
+					.getTexturePackTextureRegionLibrary();
+
+		} catch (TexturePackParseException e) {
+			Debug.e(e);
+		}
+	}
+
+	public void loadTiledTextureBackGround2s(TextureManager texturemanager,
 			ContextWrapper contextWrapper) {
 		try {
 			texturePack = new TexturePackLoader(texturemanager, "gfx/")
 					.loadFromAsset(contextWrapper.getAssets(),
-							"BackGrounds.xml");
+							"Background2.xml");
 			texturePack.loadTexture();
 			texturePackLibrary = texturePack
 					.getTexturePackTextureRegionLibrary();
@@ -261,10 +301,17 @@ public class TexturePackerHelper {
 			Debug.e(e);
 		}
 
-		// BackGround_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
-		// MyBackGrounds.BACKGROUND_ID, 1, 1);
-		// Earth_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
-		// MyBackGrounds.EARTH_ID, 1, 1);
+		BACKGROUNDS_LS_ID = (TiledTextureRegion) getSpriteFromSheet(
+				xdpm.nhom11.angrybirdsproject.resourcemanager.Background2.BACKGROUNDS_LS_ID,
+				1, 1);
+
+		SPLASHES_SHEET_1_ID = (TiledTextureRegion) getSpriteFromSheet(
+				xdpm.nhom11.angrybirdsproject.resourcemanager.Background2.SPLASHES_SHEET_1_ID,
+				1, 1);
+
+		SPLASHES_SHEET_2_ID = (TiledTextureRegion) getSpriteFromSheet(
+				xdpm.nhom11.angrybirdsproject.resourcemanager.Background2.SPLASHES_SHEET_2_ID,
+				1, 1);
 	}
 
 	private void loadTiledTextureBlocks(TextureManager texturemanager,
@@ -296,7 +343,7 @@ public class TexturePackerHelper {
 		RecEmpty_rock_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
 				Block.RECEMPTY_ROCK_ID, 4, 1);
 		RecEmpty_wood_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
-				Block.RECEMPTY_ROCK_ID, 4, 1);
+				Block.RECEMPTY_WOOD_ID, 4, 1);
 		RecFull_ice_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
 				Block.RECFULL_ICE_ID, 4, 1);
 		RecFull_roc_TiledTexture = (TiledTextureRegion) getSpriteFromSheet(
@@ -550,4 +597,32 @@ public class TexturePackerHelper {
 				Button.VOLUMEINOPTION_BTN_ID, 2, 1);
 
 	}
+
+	private void loadTiledTextureGameScene(TextureManager texturemanager,
+			ContextWrapper contextWrapper) {
+		try {
+			texturePack = new TexturePackLoader(texturemanager, "gfx/")
+					.loadFromAsset(contextWrapper.getAssets(), "GameScene.xml");
+			texturePack.loadTexture();
+			texturePackLibrary = texturePack
+					.getTexturePackTextureRegionLibrary();
+
+		} catch (TexturePackParseException e) {
+			Debug.e(e);
+		}
+
+		Popup_ID_1 = (TiledTextureRegion) getSpriteFromSheet(
+				xdpm.nhom11.angrybirdsproject.resourcemanager.GameScene.ID_popup,
+				1, 1);
+
+		Ketthuc_ID_1 = (TiledTextureRegion) getSpriteFromSheet(
+				xdpm.nhom11.angrybirdsproject.resourcemanager.GameScene.ID_ketthuc_1,
+				1, 1);
+
+		Ketthuc_ID_2 = (TiledTextureRegion) getSpriteFromSheet(
+				xdpm.nhom11.angrybirdsproject.resourcemanager.GameScene.ID_ketthuc_2,
+				1, 1);
+
+	}
+
 }

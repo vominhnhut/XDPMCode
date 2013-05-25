@@ -15,7 +15,7 @@ public interface Button
 	public static final int EMPTY_BTN_ID = 5;
 	public static final int GACHNOI_ID = 6;
 	public static final int LEFT_BTN_ID = 7;
-	public static final int LOCKLEVEL_ID = 8;
+	public static final int LOCKLEVEL_ID = 8; 
 	public static final int NEXTINGAME_BTN_ID = 9;
 	public static final int NEXTINMENU_BTN_ID = 10;
 	public static final int NUMBER_STRIP10_ID = 11;

@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LISTBIRD>
-  <BIRD id="4"  finalscore="12"/>
-  <BIRD id="5"  finalscore="14"/>
-  <BIRD id="6"  finalscore="15"/>
-  <BIRD id="1"  finalscore="16"/>
+
+    <BIRD
+        id="RED BIRD"
+        finalscore="10000" />
+
+    <BIRD
+        id="BLUE BIRD"
+        finalscore="10000" />
+
+    <BIRD
+        id="YELLOW BIRD"
+        finalscore="10000" />
+
+    <BIRD
+        id="BLACK BIRD"
+        finalscore="10000" />
+
+    <BIRD
+        id="WHITE BIRD"
+        finalscore="10000" />
+
 </LISTBIRD>

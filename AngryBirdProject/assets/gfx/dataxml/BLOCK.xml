@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LISTBLOCK>
-<BLOCK id="" lifevalue="" score="" />
-<BLOCK id="" lifevalue="" score="" />
-<BLOCK id="" lifevalue="" score="" />
-<BLOCK id="" lifevalue="" score="" />
+
+    <BLOCK
+        id="RECEMPTY_WOOD"
+        lifevalue="5000"
+        score="200" />
+
 </LISTBLOCK>

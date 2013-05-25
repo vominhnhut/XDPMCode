@@ -2,33 +2,33 @@
 <LISTPIG>
 
     <PIG
-        id=""
-        lifevalue=""
-        score="" />
+        id="SMALL PIG"
+        lifevalue="5000"
+        score="5000" />
 
     <PIG
-        id=""
-        lifevalue=""
-        score="" />
+        id="MEDIUM PIG"
+        lifevalue="5000"
+        score="5000" />
 
     <PIG
-        id=""
-        lifevalue=""
-        score="" />
+        id="HELMET PIG"
+        lifevalue="5000"
+        score="5000" />
 
     <PIG
-        id=""
-        lifevalue=""
-        score="" />
+        id="KING PIG"
+        lifevalue="5000"
+        score="5000" />
 
     <PIG
-        id=""
-        lifevalue=""
-        score="" />
+        id="LARGE PIG"
+        lifevalue="5000"
+        score="5000" />
 
     <PIG
-        id=""
-        lifevalue=""
-        score="" />
+        id="OLD PIG"
+        lifevalue="5000"
+        score="5000" />
 
 </LISTPIG>
